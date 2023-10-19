@@ -1,0 +1,101 @@
+/******************************************************************************
+	작성자 : 김기석
+	작성일 : 2017.09.27
+	기능 : SNS 로그인 관련 라이브러리
+******************************************************************************/
+var snsLogin = {
+	// 네이버 관련 API
+	naver : {
+		login : function(options){
+			var defaults = {
+				target		: "blank",
+				redirectUrl	: ""
+			};
+
+			options = $.extend(true, defaults, options);
+
+			if(options.target == "blank"){
+				var specs = "height=720, width=460";
+				window.open(ctx_curr + "/mm/snsAuca/login.do?snsType=naver&target=" + options.target, "snsLoginForm", specs);
+			}else if(options.target == "self"){
+				location.href = ctx_curr + "/mm/snsAuca/login.do?snsType=naver&target=" + options.target + "&redirectUrl=" + encodeURI(options.redirectUrl);
+			}
+		}
+	},
+
+    // 카카오 관련 API
+    kakao : {
+		login : function(options){
+			var defaults = {
+					target		: "blank",
+					redirectUrl	: ""
+				};
+
+				options = $.extend(true, defaults, options);
+
+				if(options.target == "blank"){
+					var specs = "height=720, width=460";
+					window.open(ctx_curr + "/mm/snsAuca/login.do?snsType=kakao&target=" + options.target, "snsLoginForm", specs);
+				}else if(options.target == "self"){
+					location.href = ctx_curr + "/mm/snsAuca/login.do?snsType=kakao&&target=" + options.target + "&redirectUrl=" + encodeURI(options.redirectUrl);
+				}
+		}
+    },
+
+    // 페이스북 관련 API
+    facebook : {
+		login : function(options){
+			var defaults = {
+					target		: "blank",
+					redirectUrl	: ""
+				};
+
+				options = $.extend(true, defaults, options);
+
+				if(options.target == "blank"){
+					var specs = "height=720, width=650";
+					window.open(ctx_curr + "/mm/snsAuca/login.do?snsType=facebook&target=" + options.target, "snsLoginForm", specs);
+				}else if(options.target == "self"){
+					location.href = ctx_curr + "/mm/snsAuca/login.do?snsType=facebook&target=" + options.target + "&redirectUrl=" + encodeURI(options.redirectUrl);
+				}
+		}
+    }
+
+    // 페이스북 관련 API
+    /*
+    facebook : {
+        // 로그인
+        login : function(callback){
+            FB.getLoginStatus(function(response){
+                // 로그인이 안되어 있으면 로그인창 활성화
+                if(response.status === 'connected') {
+                    FB.api('/me', { fields : "name,email,first_name,last_name", access_token : response.authResponse.accessToken }, function(response) {
+                    	callback(response);
+                    });
+                }else{
+                    FB.login(function(response){
+                        FB.api('/me', { fields : "name,email,first_name,last_name", access_token : response.authResponse.accessToken }, function(response) {
+                        	callback(response);
+                        });
+                    }, {scope: 'publish_actions,email'});
+                }
+            });
+
+
+
+        },
+
+        // 로그아웃
+        logout : function(){
+            FB.getLoginStatus(function(response){
+                // 로그인이 되어 있다면 로그아웃 호출
+                if(response.status === 'connected') {
+                    FB.logout(function(response){ console.log(response); });
+                }else{
+                    alert("로그인되어 있지 않음!");
+                }
+            });
+        }
+    }
+    */
+}
