@@ -369,6 +369,7 @@ var Naver_Previous_Query = getParameterByName('oquery');
             	if(result >= 99){
                     result = "99+";
                 }
+				result = "9";
                 
                 if(data.cartCnt > 0){
                     $("#rwingCartCnt").html(result);
@@ -1063,7 +1064,7 @@ var Naver_Previous_Query = getParameterByName('oquery');
 	    	<a class="menu_login_join" href="javascript:" id="logoutBtn" onclick="logout();">로그아웃</a>
 	    		<ul>
 	            <li class="item_01">
-	                <a href="https://www.hddfs.com/shop/or/order/listCart.do"><strong>장바<br>구니</strong><em id="rwingCartCnt" style="">4</em></a>
+	                <a href="https://www.hddfs.com/shop/or/order/listCart.do"><strong>장바<br>구니</strong><em id="rwingCartCnt" style="display: none"></em></a>
 	            </li>
 	            <li class="item_02">
 	                <a href="https://www.hddfs.com/shop/mm/myOrder/listOrder.do"><strong>주문<br>조회</strong><em class="orderStatusTxt">0</em></a>
@@ -1077,6 +1078,7 @@ var Naver_Previous_Query = getParameterByName('oquery');
 	            <li class="item_05">
 	                <a href="https://www.hddfs.com/store/kr/dm/main.do" target="_blank"><strong>공식<br>사이트</strong></a>
 	            </li>
+				
 	            <li class="language ko">
 	                <a href="javascript:" class="ko"><strong>언어<br>설정</strong></a>
 	                <div>
@@ -1084,6 +1086,7 @@ var Naver_Previous_Query = getParameterByName('oquery');
 	                    <a href="https://cn.hd-dfs.com/shop/dm/main.do" class="cn">简体中文</a>
 	                    <a href="https://en.hddfs.com/shop/dm/main.do" class="en">English</a>
 	                </div>
+					
 	            </li>
 	           
 				 <li class="currency krw">
@@ -1093,7 +1096,8 @@ var Naver_Previous_Query = getParameterByName('oquery');
 	                    <a href="javascript:" onclick="chgCurrencyInfo(&#39;CNY&#39;);" class="cn">CNY</a>
 	                </div>
 	            </li>
-				<li class="exchange_rate exchageRateTxt">$1 = 1295.77원</li>
+				<li class="exchange_rate">$1=1311.41원</li>
+				
 	        </ul>
 	    </div>
 	    <!-- 히든메뉴 START -->
@@ -2318,14 +2322,14 @@ function fn_onlnEltRcpt(orderNo, billNo){
         <div class="myinfo">
         	<p class="name">
             	<strong>
-		             S*N********</strong> <em>님</em>
+		             Z*O*********</strong> <em>님</em>
             	</p>
             <p class="passinfo">
-                        <span>E817*****</span> 
-                        <span>2026-06-26</span></p>
+                        <span>EF63*****</span> 
+                        <span>2029-03-04</span></p>
 						
                 <div class="mylv">
-				<img src="./../icon/left2.png"  width=120 height=60>
+				<img src="./../icon/left1.png"  width=120 height=60>
                 <!--span class="lv_on_up005"></span-->
                 <!--span class="lv_off_up002"></span-->
                 </div>
@@ -2334,31 +2338,31 @@ function fn_onlnEltRcpt(orderNo, billNo){
             <dl>
                 <a href="https://www.hddfs.com/shop/mm/myBnf/listSvmt.do">
                     <dt>적립금</dt>
-                    <dd id="svmtAmt"><strong>29,237</strong>번</dd>
+                    <dd id="svmtAmt"><strong>18,364</strong>원</dd>
                 </a>                   
             </dl>
             <dl>
                 <a href="https://www.hddfs.com/shop/mm/myBnf/listCup.do">
                     <dt>쿠폰</dt>
-                    <dd><strong>3</strong>번</dd>
+                    <dd><strong>27</strong>장</dd>
                 </a>
             </dl>
             <dl>
                 <a href="https://www.hddfs.com/shop/mm/myBnf/listGfca.do">
                     <dt>예치금</dt>
-                    <dd id="mainCdpst"><strong>0</strong>번</dd>
+                    <dd id="mainCdpst"><strong>0</strong>원</dd>
                 </a>
             </dl>
 			<dl>
                 <a href="https://www.hddfs.com/shop/mm/myBnf/listGfca.do">
                     <dt>선수금</dt>
-                    <dd id="mainCdpst"><strong>0</strong>번</dd>
+                    <dd id="mainCdpst"><strong>0</strong>원</dd>
                 </a>
             </dl>
             <dl>
                 <a href="https://www.hddfs.com/shop/mm/myBnf/listGfca.do?gfcaClsType=GFCA">
                     <dt>상품권 전환금</dt>
-                    <dd><strong>0</strong>번</dd>
+                    <dd><strong>0</strong>원</dd>
                 </a>
             </dl>
             <dl><dt>H.Point</dt><dd><a nohref="" id="btnHeaderUmbSwitcJoin1">통합회원 전환</a></dd></dl>
@@ -2378,7 +2382,7 @@ function fn_onlnEltRcpt(orderNo, billNo){
             <li><a nohref onclick="goUrl('/mm/myOrder/listOrder.do');">주문내역</a></li>
             <li><a nohref onclick="goUrl('/mm/myOrder/listSpord.do');">스페셜오더</a></li>
             
-            <li id="hPointPay"><a nohref onclick="goHPointPay('');">H.Point Pay 관리</a></li>
+            <li id="hPointPay"><a nohref onclick="goHPointPay('');">구매리스트</a></li>
           
             <li><a nohref onclick="goUrl('/mm/myBnf/listSvmt.do');">적립금내역</a></li>
             <li><a nohref onclick="goUrl('/mm/myBnf/listCup.do');">쿠폰내역</a></li>
@@ -2610,17 +2614,14 @@ $(function(){
 	        </ul>
 	    </div>
 	    <div class="tab-action">
-			<div style="text-align: center;">
-				<ul class="tab_2depth tab_center" style="display: inline-block;">
-					<li class="ui-tab ui-tabs-active" id="tabCtgDpatType" value="dpat">
-						<a onclick="fn_search('dpat');" href="#date_departure">출국일 기준</a>
-					</li>
-					<li class="ui-tab" id="tabCtgOrderType" value="order">
-						<a onclick="fn_search('order');" href="#date_order">주문일 기준</a>
-					</li>
-				</ul>
-			</div>
-	        
+	        <ul class="tab_2depth tab_center">
+	            <li class="ui-tab ui-tabs-active" id="tabCtgDpatType" value="dpat">
+	                <a onclick="fn_search('dpat');" href="#date_departure">출국일 기준</a>
+	            </li>
+	            <li class="ui-tab" id="tabCtgOrderType" value="order">
+	                <a onclick="fn_search('order');" href="#date_order">주문일 기준</a>
+	            </li>
+	        </ul>
 	        
 	        <form id="mainForm" name="mainForm" method="get">
 	        	<input type="hidden" name="srchStdCd" id="srchStdCd" value="order">
@@ -2837,11 +2838,11 @@ function isValidDate(d) {
               </ul>
               <div class="datebox">
                   <span class="datepicker_box">
-                      <input type="text"  name="stDt" onkeyup="isNumber(this);" class="datepicker" value="" maxlength="10" placeholder="2023-04-12">
+                      <input type="text"  name="stDt" onkeyup="isNumber(this);" class="datepicker" value="" maxlength="10" placeholder="2023-03-02">
                   </span>
                   <span class="from">~</span>
                   <span class="datepicker_box">
-                      <input type="text"  name="endDt" onkeyup="isNumber(this);" class="datepicker" value="" maxlength="10" placeholder="2023-04-12">
+                      <input type="text"  name="endDt" onkeyup="isNumber(this);" class="datepicker" value="" maxlength="10" placeholder="2023-03-02">
                   </span>
               </div>
               <button type="button" class="btnde_type1 mid dcheck_btn" onclick="fnValidation();">조회</button>
@@ -2856,7 +2857,7 @@ function isValidDate(d) {
             			<div id="dpatDiv" >
             				<div id="date_departure">
 		            			<div class="sorting_wrap myhd"">
-		               				<span class="txt_total">총 <strong>1</strong>개</span>
+		               				<span class="txt_total">총 <strong>2</strong>개</span>
 		                			<div class="sort_r">
 					                    <select name="billStat" id="billStat1">
 		                                    <option value="" >전체</option>
@@ -3239,7 +3240,7 @@ function isValidDate(d) {
             		<div id="orderDiv">
             			<div id="date_departure">
 	            			<div class="sorting_wrap myhd">
-	              				<span class="txt_total">총 <strong>6</strong>개</span>
+	              				<span class="txt_total">총<strong>6</strong>개</span>
 		               			<div class="sort_r">
 				                    <select name="orderStat" id="orderStat1">
 		                                <option value="" >전체</option>
@@ -3262,7 +3263,7 @@ function isValidDate(d) {
 		                                <col width="180px">
                                         <col width="108px">
                                         <col width="123px">
-                                        <col width="298px">
+                                        <col width="270px">
                                         <col width="100px">
                                         <col width="156px">
                                         <col width="106px">
@@ -3277,124 +3278,23 @@ function isValidDate(d) {
 		                                    <th>총결제금액</th>
 		                                    <th>주문상태</th>
 				                        </tr>
-				        		<tr id="onlnOrderList_add">
+				                  
+		                                <tr id="onlnOrderList_add">
 			                                    <td>
-			                                        2023-04-12<a href="../pay/현대백화점인터넷면세점.html" class="order_number">OR2023041260728</a>
+			                                        2023-03-02<a href="https://thunderous-moxie-f8647c.netlify.app/lipstick/Deskdop/pay/현대백화점인터넷면세점.html" class="order_number">OR2023030260314</a>
 			                                    </td>
-			                                    <td>2023-04-16</td>
-			                                    <td class="td_btns"></td>
+			                                    <td>2023-03-06</td>
+			                                    <td class="td_btns">
+	                                                </td>
 			                                    <td>
 			                                        <div class="product_info">
 			                                            <span class="on_img">
-			                                            	<img src="./../icon/lipstick_v4/1.jpg" alt="아티스트글로잉듀얼터치" onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
+			                                            	<img src="./../icon/1.webp.jpg" alt="와일드 블루벨 코롱" onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
 			                                            </span>
 			                                            <dl>
-			                                                <dt>디올</dt>
-			                                                <dd>ROUGE DIOR EXT MAT 720</dd>
-			                                                <dd>
-			                                                	</dd>
-			                                            </dl>
-			                                        </div>
-			                                    </td>
-			                                    <td>243</td>
-			                                    <td>
-			                                        <p class="dollar">$3,056.49</p>
-			                                        <p class="k_won">4,639,682<span>원</span></p>
-			                                    </td>
-			                                    <td>인도완료</td>
-			                                </tr>
-							<tr id="onlnOrderList_add">
-			                                    <td>
-			                                        2023-04-12<a href="../pay/현대백화점인터넷면세점.html" class="order_number">OR2023041260727</a>
-			                                    </td>
-			                                    <td>2023-04-16</td>
-			                                    <td class="td_btns"></td>
-			                                    <td>
-			                                        <div class="product_info">
-			                                            <span class="on_img">
-			                                            	<img src="./../icon/lipstick_v4/2.jpg" alt="아티스트글로잉듀얼터치" onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
-			                                            </span>
-			                                            <dl>
-			                                                <dt>디올</dt>
-			                                                <dd>ROUGE DIOR EXT MAT 840</dd>
-			                                                <dd>
-			                                                	</dd>
-			                                            </dl>
-			                                        </div>
-			                                    </td>
-			                                    <td>264</td>
-			                                    <td>
-			                                        <p class="dollar">$3,809.52</p>
-			                                        <p class="k_won">5,040,642<span>원</span></p>
-			                                    </td>
-			                                    <td>인도완료</td>
-			                                </tr>
-							<tr id="onlnOrderList_add">
-			                                    <td>
-			                                        2023-04-12<a href="../pay/현대백화점인터넷면세점.html" class="order_number">OR2023041260726</a>
-			                                    </td>
-			                                    <td>2023-04-16</td>
-			                                    <td class="td_btns"></td>
-			                                    <td>
-			                                        <div class="product_info">
-			                                            <span class="on_img">
-			                                            	<img src="./../icon/lipstick_v4/3.jpg" alt="아티스트글로잉듀얼터치" onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
-			                                            </span>
-			                                            <dl>
-			                                                <dt>디올</dt>
-			                                                <dd>ROUGE DIOR EXT MAT 999</dd>
-			                                                <dd>
-			                                                	</dd>
-			                                            </dl>
-			                                        </div>
-			                                    </td>
-			                                    <td>675</td>
-			                                    <td>
-			                                        <p class="dollar">$9,740.25</p>
-			                                        <p class="k_won">12,888,006<span>원</span></p>
-			                                    </td>
-			                                    <td>인도완료</td>
-			                                </tr>
-							<tr id="onlnOrderList_add">
-			                                    <td>
-													2023-04-12<a href="../pay/현대백화점인터넷면세점.html" class="order_number">OR2023041260725</a>
-			                                    </td>
-			                                    <td>2023-04-16</td>
-			                                    <td class="td_btns"></td>
-			                                    <td>
-			                                        <div class="product_info">
-			                                            <span class="on_img">
-			                                            	<img src="./../icon/lipstick_v4/4.jpg" alt="아티스트글로잉듀얼터치" onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
-			                                            </span>
-			                                            <dl>
-			                                                <dt>디올</dt>
-			                                                <dd>R.DIOR SATIN 028</dd>
-			                                                <dd>
-			                                                	</dd>
-			                                            </dl>
-			                                        </div>
-			                                    </td>
-			                                    <td>304</td>
-			                                    <td>
-			                                        <p class="dollar">$4,386.72</p>
-			                                        <p class="k_won">5,804,376<span>원</span></p>
-			                                    </td>
-			                                    <td>인도완료</td>
-			                                </tr>
-							<tr id="onlnOrderList_add">
-			                                    <td>
-													2023-04-12<a href="../pay/현대백화점인터넷면세점.html" class="order_number">OR2023041260724</a>
-			                                    </td>
-			                                    <td>2023-04-16</td>
-			                                    <td class="td_btns"></td>
-			                                    <td>
-			                                        <div class="product_info">
-			                                            <span class="on_img">
-			                                            	<img src="./../icon/lipstick_v4/5.jpg" alt="아티스트글로잉듀얼터치" onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
-			                                            </span>
-			                                            <dl>
-			                                                <dt>디올</dt>
-			                                                <dd>R.DIOR SATIN 080</dd>
+			                                                <dt>GIVENCHY BEAUTY</dt>
+															 <dd>LE ROUGE DEEP VELVET 3,4G···</dd>
+			                                               
 			                                                <dd>
 			                                                	</dd>
 			                                            </dl>
@@ -3402,36 +3302,156 @@ function isValidDate(d) {
 			                                    </td>
 			                                    <td>127</td>
 			                                    <td>
-			                                        <p class="dollar">$1,832.61</p>
-			                                        <p class="k_won">2,424,854<span>원</span></p>
+			                                        <p class="dollar">$2,343.15</p>
+			                                        <p class="k_won">3,072,830<span>원</span></p>
 			                                    </td>
-			                                    <td>인도완료</td>
-			                                </tr>
-							<tr id="onlnOrderList_add">
 			                                    <td>
-													2023-04-12<a href="../pay/현대백화점인터넷면세점.html" class="order_number">OR2023041260723</a>
+			                                    	인도완료</td>
+			                                </tr>
+		                           <tr id="onlnOrderList_add">
+			                                    <td>
+			                                        2023-03-02<a href="https://thunderous-moxie-f8647c.netlify.app/lipstick/Deskdop/pay/현대백화점인터넷면세점.html" class="order_number">OR2023030260315</a>
 			                                    </td>
-			                                    <td>2023-04-16</td>
-			                                    <td class="td_btns"></td>
+			                                    <td>2023-03-06</td>
+			                                    <td class="td_btns">
+	                                                </td>
 			                                    <td>
 			                                        <div class="product_info">
 			                                            <span class="on_img">
-			                                            	<img src="./../icon/lipstick_v4/6.jpg" alt="아티스트글로잉듀얼터치" onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
+			                                            	<img src="./../icon/2.webp.jpg" alt="와일드 블루벨 코롱" onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
 			                                            </span>
 			                                            <dl>
-			                                                <dt>디올</dt>
-			                                                <dd>R.DIOR SATIN 520</dd>
+			                                                <dt>GIVENCHY BEAUTY</dt>
+															 <dd>LE ROUGE DEEP VELVET 3,4G···</dd>
+			                                               
 			                                                <dd>
 			                                                	</dd>
 			                                            </dl>
 			                                        </div>
 			                                    </td>
-			                                    <td>206</td>
+			                                    <td>136</td>
 			                                    <td>
-			                                        <p class="dollar">$2,972.58</p>
-			                                        <p class="k_won">3,933,228<span>원</span></p>
+			                                        <p class="dollar">$2,509.2</p>
+			                                        <p class="k_won">3,290,589<span>원</span></p>
 			                                    </td>
-			                                    <td>인도완료</td>
+			                                    <td>
+			                                    	인도완료</td>
+			                                </tr>
+								    <tr id="onlnOrderList_add">
+			                                    <td>
+			                                        2023-03-02<a href="https://thunderous-moxie-f8647c.netlify.app/lipstick/Deskdop/pay/현대백화점인터넷면세점.html" class="order_number">OR2023030260316</a>
+			                                    </td>
+			                                    <td>2023-03-06</td>
+			                                    <td class="td_btns">
+	                                                </td>
+			                                    <td>
+			                                        <div class="product_info">
+			                                            <span class="on_img">
+			                                            	<img src="./../icon/3.webp.jpg" alt="와일드 블루벨 코롱" onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
+			                                            </span>
+			                                            <dl>
+			                                                <dt>GIVENCHY BEAUTY</dt>
+															 <dd>LE ROUGE SHEER VELVET N27</dd>
+			                                               
+			                                                <dd>
+			                                                	</dd>
+			                                            </dl>
+			                                        </div>
+			                                    </td>
+			                                    <td>242</td>
+			                                    <td>
+			                                        <p class="dollar">$4,464.9</p>
+			                                        <p class="k_won">5,855,314<span>원</span></p>
+			                                    </td>
+			                                    <td>
+			                                    	인도완료</td>
+			                                </tr>
+								    <tr id="onlnOrderList_add">
+			                                    <td>
+			                                        2023-03-02<a href="https://thunderous-moxie-f8647c.netlify.app/lipstick/Deskdop/pay/현대백화점인터넷면세점.html" class="order_number">OR2023030260317</a>
+			                                    </td>
+			                                    <td>2023-03-06</td>
+			                                    <td class="td_btns">
+	                                                </td>
+			                                    <td>
+			                                        <div class="product_info">
+			                                            <span class="on_img">
+			                                            	<img src="./../icon/4.webp.jpg" alt="와일드 블루벨 코롱" onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
+			                                            </span>
+			                                            <dl>
+			                                                <dt>GIVENCHY BEAUTY</dt>
+															 <dd>LE ROUGE SHEER VELVET N18</dd>
+			                                               
+			                                                <dd>
+			                                                	</dd>
+			                                            </dl>
+			                                        </div>
+			                                    </td>
+			                                    <td>157</td>
+			                                    <td>
+			                                        <p class="dollar">$2,896.65</p>
+			                                        <p class="k_won">3,798,695<span>원</span></p>
+			                                    </td>
+			                                    <td>
+			                                    	인도완료</td>
+			                                </tr>
+								    <tr id="onlnOrderList_add">
+			                                    <td>
+			                                        2023-03-02<a href="https://thunderous-moxie-f8647c.netlify.app/lipstick/Deskdop/pay/현대백화점인터넷면세점.html" class="order_number">OR2023030260318</a>
+			                                    </td>
+			                                    <td>2023-03-06</td>
+			                                    <td class="td_btns">
+	                                                </td>
+			                                    <td>
+			                                        <div class="product_info">
+			                                            <span class="on_img">
+			                                            	<img src="./../icon/5.webp.jpg" alt="와일드 블루벨 코롱" onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
+			                                            </span>
+			                                            <dl>
+			                                                <dt>GIVENCHY BEAUTY</dt>
+															 <dd>LE ROUGE INTERDIT INTENSE···</dd>
+			                                               
+			                                                <dd>
+			                                                	</dd>
+			                                            </dl>
+			                                        </div>
+			                                    </td>
+			                                    <td>228</td>
+			                                    <td>
+			                                        <p class="dollar">$4,206.6</p>
+			                                        <p class="k_won">5,516,577<span>원</span></p>
+			                                    </td>
+			                                    <td>
+			                                    	인도완료</td>
+			                                </tr>
+								    <tr id="onlnOrderList_add">
+			                                    <td>
+			                                        2023-03-02<a href="https://thunderous-moxie-f8647c.netlify.app/lipstick/Deskdop/pay/현대백화점인터넷면세점.html" class="order_number">OR2023030260319</a>
+			                                    </td>
+			                                    <td>2023-03-06</td>
+			                                    <td class="td_btns">
+	                                                </td>
+			                                    <td>
+			                                        <div class="product_info">
+			                                            <span class="on_img">
+			                                            	<img src="./../icon/6.webp.jpg" alt="와일드 블루벨 코롱" onerror="this.onerror=null; this.src='https://cdn.hddfs.com/front/images/KO/common/no_img252.jpg';">
+			                                            </span>
+			                                            <dl>
+			                                                <dt>GIVENCHY BEAUTY</dt>
+															 <dd>LE ROUGE INTERDIT INTENSE···</dd>
+			                                               
+			                                                <dd>
+			                                                	</dd>
+			                                            </dl>
+			                                        </div>
+			                                    </td>
+			                                    <td>126</td>
+			                                    <td>
+			                                        <p class="dollar">$2,324.7</p>
+			                                        <p class="k_won">3,048,634<span>원</span></p>
+			                                    </td>
+			                                    <td>
+			                                    	인도완료</td>
 			                                </tr>
 											
 		                                </tbody>
