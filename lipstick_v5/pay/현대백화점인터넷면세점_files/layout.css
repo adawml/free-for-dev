@@ -21,7 +21,7 @@
 .main_box .header_wrap .nav_wrap {border-bottom:none}
 .main_box .header_wrap .nav_wrap.nav_stiky {border-bottom:1px solid #c51315}
 .main_box .nav_wrap .brand_open {border-top:1px solid #c51315}
-.main_box .header_wrap .nav_wrap{background:url('../../images/KO/common/nav_bg.png') repeat 0 0}
+.main_box .header_wrap .nav_wrap{background:url('https://cdn.hddfs.com/front/images/KO/common/nav_bg.png') repeat 0 0}
 .header_wrap .top_menu:after,
 .header_wrap .top_menu ul:after,
 .header_wrap .gnb ul:after,
@@ -64,7 +64,7 @@
 /* .keyword_area .tab_view_box2 .recent_keyword {padding-bottom:25px} *//*2018-10-24 검색>최근 검색어> 최근검색어 전체삭제  pub02*/
 .top_sh_keyword .keyword_area .no_result {position:absolute;left:15px;right:15px;top:50%;margin-top:-45px;text-align:center}
 .top_sh_keyword .keyword_area .no_result p {display:inline-block;color:#999;vertical-align:middle}
-.top_sh_keyword .keyword_area .no_result p:before {content:'';position:absolute;top:-35px;left:50%;height:40px;width:40px;margin-left:-20px;background-image:url('../../images/KO/common/ico_common.png');background-repeat:no-repeat;background-position:-510px -540px}
+.top_sh_keyword .keyword_area .no_result p:before {content:'';position:absolute;top:-35px;left:50%;height:40px;width:40px;margin-left:-20px;background-image:url('https://cdn.hddfs.com/front/images/KO/common/ico_common.png');background-repeat:no-repeat;background-position:-510px -540px}
 .top_sh_keyword .recom_keyword ul li a {display:block;padding:4px 0 5px 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .top_sh_keyword .recom_keyword ul li a span {position:relative;display:inline-block;margin-right:8px;padding-right:10px}
 .top_sh_keyword .recom_keyword ul li a span:after {content:'';position:absolute;right:0;top:50%;height:10px;margin-top:-5px;width:1px;background-color:#d9d9d9;border-right:1px solid #eee}
@@ -109,7 +109,7 @@
 .top_sh_keyword .autocomplate_list > ul li.active a {background-color:#f9f9f9}
 .top_sh_keyword .autocomplate_list > ul li a:hover {background-color:#f9f9f9;color:#c51315;text-decoration:underline}
 .top_sh_keyword .autocomplate_list > ul ul li > a {padding:4px 10px 4px 42px}
-.top_sh_keyword .autocomplate_list > ul ul li:first-child > a:before {content:'';position:absolute;top:8px;left:29px;height:8px;width:8px;background-image:url('../../images/KO/common/ico_common.png');background-repeat:no-repeat;background-position:-270px 0}
+.top_sh_keyword .autocomplate_list > ul ul li:first-child > a:before {content:'';position:absolute;top:8px;left:29px;height:8px;width:8px;background-image:url('https://cdn.hddfs.com/front/images/KO/common/ico_common.png');background-repeat:no-repeat;background-position:-270px 0}
 .top_sh_keyword .autocomplate_list .btn_go {position:absolute;top:5px;right:10px;min-width:52px;height:20px;line-height:18px;padding:0 6px;font-size:11px;text-decoration:none !important}
 .top_sh_keyword .autocomplate_list .btn_go:hover {background-color:#fff}
 
@@ -153,7 +153,7 @@
 .header_wrap .top_sbn {position:absolute;top:34px;right:0;height:88px;width:210px;padding-right:41px;overflow:hidden}
 .header_wrap .top_sbn a{display: block; height: 100%;}
 .top_sbn .bx-wrapper .bx-controls-direction a {width:16px;height:16px;margin-top:-8px;text-align:center;border:1px solid #e5e5e5;background:none}
-.top_sbn .bx-wrapper .bx-controls-direction a:before {content:'';position:absolute;top:50%;left:50%;display:inline-block;overflow:hidden;width:3px;height:6px;margin:-3px 0 0 -1px;background-image:url('../../images/KO/common/ico_common.png');background-repeat:no-repeat}
+.top_sbn .bx-wrapper .bx-controls-direction a:before {content:'';position:absolute;top:50%;left:50%;display:inline-block;overflow:hidden;width:3px;height:6px;margin:-3px 0 0 -1px;background-image:url('https://cdn.hddfs.com/front/images/KO/common/ico_common.png');background-repeat:no-repeat}
 .top_sbn .bx-wrapper .bx-controls-direction a.bx-prev {right:-26px;top:30px;}
 .top_sbn .bx-wrapper .bx-controls-direction a.bx-prev:before {background-position:-60px 0}
 .top_sbn .bx-wrapper .bx-controls-direction a.bx-next {right:-41px;top:30px;}
@@ -191,7 +191,7 @@
 .brand_open .small_category ul li:after {content:'';position:absolute;top:50%;right:0;width:1px;height:14px;margin-top:-7px;background-color:#e6e6e6}
 .brand_open .small_category ul li:last-child:after {display:none}
 .brand_open .small_category ul li a.active {color:#c8191b;text-decoration:underline}
-.brand_open .category_list {margin:25px -10px 0 0;height:300px;overflow-x:hidden;overflow-y:auto;background:url('../../images/KO/common/brand_bg.gif') repeat-y 0 0}
+.brand_open .category_list {margin:25px -10px 0 0;height:300px;overflow-x:hidden;overflow-y:auto;background:url('https://cdn.hddfs.com/front/images/KO/common/brand_bg.gif') repeat-y 0 0}
 .brand_open .category_list ul li {float:left;width:204px;margin-bottom:6px;padding:0 15px}
 .brand_open .category_list ul li a {display:block;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .brand_open .category_list ul li a:hover {color:#c8191b;text-decoration:underline}
@@ -222,7 +222,7 @@
 .brand_open .h_luxury_list ul li dl dd.brd_img img{width:235px; height:142px;}
 .brand_open .h_luxury_list ul li dl dd.over_con{opacity:0;position:absolute; top:0; left:0; width:100%; height:100%; background-color: rgba(0, 0, 0, 0.5);}
 .brand_open .h_luxury_list ul li dl dd.over_con a{display: block; position: absolute; padding-right: 10px; top:50%; left:50%; width:96px; height: 30px; margin:-15px 0 0 -48px; color:#fff; background-color: #000; line-height: 30px;}
-.brand_open .h_luxury_list ul li dl dd.over_con a:after{display:block; position:absolute; top:12px; right:7px; width:14px; height: 7px; margin-left:20px; transform: rotate(-90deg); content: ''; background:url('../../images/KO/common/ico_common.png') -710px -920px  no-repeat;}
+.brand_open .h_luxury_list ul li dl dd.over_con a:after{display:block; position:absolute; top:12px; right:7px; width:14px; height: 7px; margin-left:20px; transform: rotate(-90deg); content: ''; background:url('https://cdn.hddfs.com/front/images/KO/common/ico_common.png') -710px -920px  no-repeat;}
 .brand_open .h_luxury_list ul li:hover dl dd.over_con{opacity:1; transition: 0.3s;}
 
 .header_wrap .nav_wrap nav > ul {float:left;margin-right:-30px}
@@ -339,7 +339,7 @@
 .footer_wrap .escrow .sub_txt .btn_escrow {font-size:11px; margin-left:5px; padding:0 7px; background:#fff; border:1px solid #999;}
 /*2019-12-13 pub10 : footer ismsp 추가*/
 .footer_wrap .ismsp {position:relative; padding:22px 0 0 60px}
-.footer_wrap .ismsp:before {content:""; display:block;position:absolute; left:0; top:28px; width:48px; height:33px; background:url('../../images/KO/common/ico_common.png') no-repeat;background-position:-774px -443px;}
+.footer_wrap .ismsp:before {content:""; display:block;position:absolute; left:0; top:28px; width:48px; height:33px; background:url('https://cdn.hddfs.com/front/images/KO/common/ico_common.png') no-repeat;background-position:-774px -443px;}
 
 /* wing */
 .wing_wrap {position:absolute;width:1080px;left:50%;top:0;margin-left:-540px}
@@ -347,7 +347,7 @@
 .left_wing .wing_bn {position:relative}
 .left_wing .wing_bn .wing_open img {width:202px;height:172px}
 .left_wing .wing_bn .wing_bn_open {position:absolute;top:0;left:212px;display:none;}
-.left_wing .wing_bn .wing_bn_open:after {content:'';display:block;position:absolute;bottom:-7px;left:0;right:0;height:7px;background:url('../../images/KO/common/left_bn_bg.png') no-repeat 50% 0}
+.left_wing .wing_bn .wing_bn_open:after {content:'';display:block;position:absolute;bottom:-7px;left:0;right:0;height:7px;background:url('https://cdn.hddfs.com/front/images/KO/common/left_bn_bg.png') no-repeat 50% 0}
 .left_wing .wing_bn .wing_bn_open img {vertical-align:top}
 .wing_bn_open .wing_close {position:absolute;top:0;right:0;width:40px;height:40px;font-size:0;line-height:0;background-color:rgba(0,0,0,.5);border:none}
 .left_wing .time_sale_mini {float:right;width:80px;margin:10px 38px 0 0;padding-bottom:20px;background-color:#3c4b66}
@@ -356,7 +356,7 @@
 .time_sale_list .bx-controls,
 .time_sale_list .bx-controls-direction {height:17px;text-align:center}
 .time_sale_list .bx-wrapper {margin-bottom:-10px !important}
-.time_sale_list .bx-wrapper .bx-controls-direction a {position:static;display:inline-block;width:16px;height:16px;margin:0;vertical-align:top;background-image:url('../../images/KO/common/ico_common.png');background-repeat:no-repeat}
+.time_sale_list .bx-wrapper .bx-controls-direction a {position:static;display:inline-block;width:16px;height:16px;margin:0;vertical-align:top;background-image:url('https://cdn.hddfs.com/front/images/KO/common/ico_common.png');background-repeat:no-repeat}
 .time_sale_list .bx-wrapper .bx-controls-direction a.bx-prev {background-position:-60px -160px}
 .time_sale_list .bx-wrapper .bx-controls-direction a.bx-next {width:15px;background-position:-76px -160px}
 .time_sale_list .bx-wrapper .bx-controls-direction a.bx-prev.disabled {background-position:-60px -180px}
@@ -470,7 +470,7 @@
 .right_basic p {color:#333}
 .right_basic .dot_list {margin-top:15px}
 .right_basic .dot_list li {font-size:13px}
-.right_basic .coupon_box {width:210px;height:111px;padding:22px 25px 0 0;margin-top:7px;font-size:42px;text-align:center;color:#333;background:url('../../images/KO/common/r_coupon.png') no-repeat 0 0}
+.right_basic .coupon_box {width:210px;height:111px;padding:22px 25px 0 0;margin-top:7px;font-size:42px;text-align:center;color:#333;background:url('https://cdn.hddfs.com/front/images/KO/common/r_coupon.png') no-repeat 0 0}
 .right_basic p + .dot_list {margin-top:10px}
 .right_basic p + .sst {margin-top:10px}
 .right_basic p.sst {color:#666}
@@ -478,7 +478,7 @@
 .right_basic .dot_list + p {margin-top:20px}
 .r_box .no_coupon {text-align:center}
 .r_box .no_coupon .no_prd {margin-bottom:12px}
-.r_box .no_coupon .no_prd:after {content:'';width:208px;height:111px;margin:10px 0 0;background:url('../../images/KO/common/r_coupon.png') no-repeat 0 -111px}
+.r_box .no_coupon .no_prd:after {content:'';width:208px;height:111px;margin:10px 0 0;background:url('https://cdn.hddfs.com/front/images/KO/common/r_coupon.png') no-repeat 0 -111px}
 .r_box .no_prd {text-align:center}
 .r_box .no_prd:after {display:block;margin:28px auto 0}
 
@@ -597,7 +597,7 @@
 .header_wrap .top_menu{height: 34px; padding: 7px 0 4px; position: relative;}
 .header_wrap .top_menu ul li {position:relative; float:left; padding: 0 10px;}
 .header_wrap .top_menu ul li:last-child{padding-right: 0;}
-.header_wrap .top_menu ul li:before {content:''; display:block; width:1px; height:10px; margin-top:-5px; position:absolute; top:50%; left:0; background-color: white; background-image: url(../../images/KO/common/ico_common.png); background-repeat: no-repeat; background-position: -610px -1000px;}
+.header_wrap .top_menu ul li:before {content:''; display:block; width:1px; height:10px; margin-top:-5px; position:absolute; top:50%; left:0; background-color: white; background-image: url(https://cdn.hddfs.com/front/images/KO/common/ico_common.png); background-repeat: no-repeat; background-position: -610px -1000px;}
 .header_wrap .top_menu ul li a{font-size: 12px; color: #474747}
 .header_wrap .nav_wrap:after{display: none;}
 /* 국/중 언어 선택 */
@@ -644,7 +644,7 @@
 .header_wrap .gnb {float: right; height: 50px; margin-top: 0; padding-top: 14px; text-align:center;}
 .header_wrap .gnb ul li {float:left; margin: 0; padding: 0 13px 0 14px; position: relative;}
 .header_wrap .gnb ul li:last-child{padding-right: 0;}
-.header_wrap .gnb ul li:before {content:''; display:block; width:1px; height:14px; margin-top:-5px; position:absolute; top:50%; left:0; background-color: white; background-image: url(../../images/KO/common/ico_common.png); background-repeat: no-repeat; background-position: -610px -1000px;}
+.header_wrap .gnb ul li:before {content:''; display:block; width:1px; height:14px; margin-top:-5px; position:absolute; top:50%; left:0; background-color: white; background-image: url(https://cdn.hddfs.com/front/images/KO/common/ico_common.png); background-repeat: no-repeat; background-position: -610px -1000px;}
 .header_wrap .gnb ul li:first-child:before{display: none;}
 .header_wrap .gnb ul li a {position:relative; color:#222;font-size:14px;font-family:'Noto Sans CJK KR'}
 .header_wrap .gnb ul li a:hover, .header_wrap .gnb ul li a:active, .header_wrap .gnb ul li a.active{color: #e60e11}
@@ -707,7 +707,7 @@
 .top_sh_keyword .realtime_keyword{padding-bottom: 0; padding-top: 10px;}
 .top_sh_keyword .realtime_keyword li .num{margin-right: 7px; font-size: 15px; color: #d70c18; font-style: italic; vertical-align: middle;}
 .top_sh_keyword .realtime_keyword li .count {padding-right: 15px; position:absolute; right:0; top: 6px; font-size:12px; font-weight: normal;}
-.top_sh_keyword .realtime_keyword li .count:after{content: ''; display: block; width: 10px; height: 7px; position: absolute; right: 0; top: 6px; background-image: url(../../images/KO/common/ico_common.png); background-repeat: no-repeat; background-position: -864px -1009px;}
+.top_sh_keyword .realtime_keyword li .count:after{content: ''; display: block; width: 10px; height: 7px; position: absolute; right: 0; top: 6px; background-image: url(https://cdn.hddfs.com/front/images/KO/common/ico_common.png); background-repeat: no-repeat; background-position: -864px -1009px;}
 .top_sh_keyword .realtime_keyword li .count.up:after{background-position: -864px -1000px;}
 .top_sh_keyword .realtime_keyword li .count.down:after{background-position: -864px -1018px;}
 .top_sh_keyword .realtime_keyword li:first-child a, .top_sh_keyword .realtime_keyword li:first-child .count{color: #000;}
@@ -744,7 +744,7 @@
 .top_sh_keyword .autocomplate_list .btn_go{right: 0;}
 .top_sh_keyword .autocomplate_list > ul > [id *="dq_ac"] + li:not([id *="dq_ac"]){border-bottom: 1px solid #e5e5e5;}
 .top_sh_keyword#autoList .keyword_bottom, .top_sh_keyword#autoList-wing .keyword_bottom{height: 60px; padding: 25px 20px 10px;}
-.top_sh_keyword#autoList .keyword_bottom::after, .top_sh_keyword#autoList-wing .keyword_bottom::after{content: ""; display: inline-block; width: 15px; height: 11px; margin-left: 5px; background: url(../../images/KO/common/ico_common.png) no-repeat; background-position: -668px -1033px;}
+.top_sh_keyword#autoList .keyword_bottom::after, .top_sh_keyword#autoList-wing .keyword_bottom::after{content: ""; display: inline-block; width: 15px; height: 11px; margin-left: 5px; background: url(https://cdn.hddfs.com/front/images/KO/common/ico_common.png) no-repeat; background-position: -668px -1033px;}
 .top_sh_keyword#autoList .keyword_bottom .ico_com.close, .top_sh_keyword#autoList-wing .keyword_bottom .ico_com.close{top: 30px;}
 .top_sh_keyword .keyword_col + .keyword_col{border-left: 0;}
 .top_sh_keyword .product_list > ul li {display: inline-block; width: 49%; padding:8px 5px 20px}
@@ -813,7 +813,7 @@
 /* .left_wing .time_sale_mini .brand_name {margin-top:33px;table-layout:fixed;width:100%;text-align:center;}
 .left_wing .time_sale_mini .brand_name span {display:block; height: 30px; padding-bottom: 12px; overflow: hidden; line-height: 15px; color: #888; font-size: 12px; vertical-align: middle;}
 .left_wing .time_sale_mini .brand_name .brandTit{display:block;padding-bottom:0;height:16px;line-height:16px;} */
-.time_sale_list .bx-wrapper .bx-controls-direction a {margin:0;position:static;display:inline-block;width:26px;height:26px;vertical-align:top;background-image:url(../../images/KO/common/ico_common.png);background-repeat: no-repeat;}
+.time_sale_list .bx-wrapper .bx-controls-direction a {margin:0;position:static;display:inline-block;width:26px;height:26px;vertical-align:top;background-image:url(https://cdn.hddfs.com/front/images/KO/common/ico_common.png);background-repeat: no-repeat;}
 .time_sale_list .bx-wrapper .bx-controls-direction a.bx-prev {background-position: -210px -1008px;}
 .time_sale_list .bx-wrapper .bx-controls-direction a.bx-prev.disabled {background-position: -210px -1008px;}
 .time_sale_list .bx-wrapper .bx-controls-direction a.bx-next {width:26px;background-position: -236px -1008px;}
@@ -837,18 +837,18 @@
 .intro_header {position:fixed; z-index:999; top:0; left:0; background:#fff; width:100%; padding:34px 0}
 .intro_header .box {width:1080px; margin:0 auto}
 .intro_header .box::after {content:""; display:block; clear:both}
-.intro_header h1 {display:block; float:left; width:180px; height:47px; background:url('../../images/KO/common/logo.png') 0 0 no-repeat; text-indent:-9999px; margin-left:30px}
+.intro_header h1 {display:block; float:left; width:180px; height:47px; background:url('https://cdn.hddfs.com/front/images/KO/common/logo.png') 0 0 no-repeat; text-indent:-9999px; margin-left:30px}
 .intro_header .searchfield {display:block; float:left; width:340px; position:relative; margin-left:30px}
 .intro_header .main_search {background:#f2f4f7; display:block; width:100%; height:52px; line-height:52px; border:0; box-sizing:border-box; padding:0 95px 0 30px; border-radius:50px; transition:all .3s}
 .intro_header .main_search.tag {padding-left:60px; transition:all .3s}
-.intro_header .btn_search {display:block; position:absolute; top:15px; right:23px; width:24px; height:24px; background:url('../../images/KO/common/icon_sprite_01.png') -27px -48px no-repeat; border:0; text-indent:-9999px}
+.intro_header .btn_search {display:block; position:absolute; top:15px; right:23px; width:24px; height:24px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_sprite_01.png') -27px -48px no-repeat; border:0; text-indent:-9999px}
 
 .intro_header .select_search {display:none}
 .intro_header .adsearch_open .select_search {display:block}
 .intro_header .select_search button {opacity:0; transition:all .3s}
 .intro_header .adsearch_open .select_search button {opacity:1; transition:all .3s}
-.intro_header .select_search .tag_search {display:block; width:24px; height:24px; position:absolute; top:15px; right:61px; background:url('../../images/KO/common/icon_controller.png') -208px -30px no-repeat #eef0f2; text-indent:-9999px; transition:all .3s; z-index:101}
-.intro_header .select_search .text_search {display:block; width:24px; height:24px; position:absolute; top:15px; right:61px; background:url('../../images/KO/common/icon_controller.png') -210px 0 no-repeat #eef0f2; text-indent:-9999px; opacity:0; transition:all .3s; z-index:100}
+.intro_header .select_search .tag_search {display:block; width:24px; height:24px; position:absolute; top:15px; right:61px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_controller.png') -208px -30px no-repeat #eef0f2; text-indent:-9999px; transition:all .3s; z-index:101}
+.intro_header .select_search .text_search {display:block; width:24px; height:24px; position:absolute; top:15px; right:61px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_controller.png') -210px 0 no-repeat #eef0f2; text-indent:-9999px; opacity:0; transition:all .3s; z-index:100}
 .intro_header .select_search.tag .tag_search {right:calc(100% - 54px); right:286px; transition:all .3s}
 .intro_header .select_search.tag .text_search {opacity:1; transition:all .3s}
 .intro_header .searchfield .select_search .tooltip {position:absolute; right:45px; bottom:-40px; background:#ea2829; height:30px; line-height:30px; border-radius:30px; padding:0 15px; color:#fff; font-size:12px; z-index:102; box-shadow:6px 6px 6px 0 rgba(0,0,0,.1); opacity:0; transition:all .3s}
@@ -862,15 +862,15 @@
 /* //2021-06-08 : 라인 분기처리 클래스 추가 */
 #header .box {max-width:1520px; margin:0 auto; padding:34px 0; position:relative}
 #header .box::after {content:""; display:block; clear:both}
-#header .btn_gnb {display:block; float:left; width:24px; height:24px; background:url('../../images/KO/common/btn_drawer.png') 0 0 no-repeat; text-indent:-9999px; margin-top:12px}
-#header h1 {display:block; float:left; width:192px; height:47px; /*background:url('../../images/KO/common/logo.png') 0 0 no-repeat; text-indent:-9999px;*/ margin-left:30px} /* 2021-06-18 : 로고 넓이 수정 *//* 2021-12-22 : 로고 bo등록기능 추가 */
+#header .btn_gnb {display:block; float:left; width:24px; height:24px; background:url('https://cdn.hddfs.com/front/images/KO/common/btn_drawer.png') 0 0 no-repeat; text-indent:-9999px; margin-top:12px}
+#header h1 {display:block; float:left; width:192px; height:47px; /*background:url('https://cdn.hddfs.com/front/images/KO/common/logo.png') 0 0 no-repeat; text-indent:-9999px;*/ margin-left:30px} /* 2021-06-18 : 로고 넓이 수정 *//* 2021-12-22 : 로고 bo등록기능 추가 */
 #header .searchfield {display:block; float:left; /*width:340px;*/ position:relative; margin-left:30px}
 #header .select_search {}
 #header .adsearch_open .select_search {display:block}
 #header .select_search button {transition:all .3s}
 #header .adsearch_open .select_search button {transition:all .3s}
-#header .select_search .tag_search {display:block; width:24px; height:24px; position:absolute; top:15px; right:61px; background:url('../../images/KO/common/icon_controller.png') -208px -30px no-repeat #eef0f2; text-indent:-9999px; transition:all .3s; z-index:79} /* 2021-08-03 수정 : IE 상품상세 레이어로 인한 z-index 수정 101 → 79 */
-#header .select_search .text_search {display:block; width:24px; height:24px; position:absolute; top:15px; right:61px; background:url('../../images/KO/common/icon_controller.png') -210px 0 no-repeat #eef0f2; text-indent:-9999px; opacity:0; transition:all .3s; z-index:78} /* GA4 추가 : z-index값 변경 (100 → 78) */
+#header .select_search .tag_search {display:block; width:24px; height:24px; position:absolute; top:15px; right:61px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_controller.png') -208px -30px no-repeat #eef0f2; text-indent:-9999px; transition:all .3s; z-index:79} /* 2021-08-03 수정 : IE 상품상세 레이어로 인한 z-index 수정 101 → 79 */
+#header .select_search .text_search {display:block; width:24px; height:24px; position:absolute; top:15px; right:61px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_controller.png') -210px 0 no-repeat #eef0f2; text-indent:-9999px; opacity:0; transition:all .3s; z-index:78} /* GA4 추가 : z-index값 변경 (100 → 78) */
 #header .select_search.tag .tag_search {right:calc(100% - 54px); right:360px; transition:all .3s} /* 2021-06-11 : 수정 */
 #header .select_search.tag .text_search {opacity:1; transition:all .3s}
 #header .searchfield .select_search .tooltip {position:absolute; right:45px; bottom:-40px; background:#ea2829; height:30px; line-height:30px; border-radius:30px; padding:0 15px; color:#fff; font-size:12px; z-index:102; box-shadow:6px 6px 6px 0 rgba(0,0,0,.1); opacity:0; transition:all .3s}
@@ -888,7 +888,7 @@
 #header .mainsearchinput .tag_search {display:none}
 #header .mainsearchinput.tag .text_search {display:none}
 #header .mainsearchinput.tag .tag_search {display:block}
-#header .btn_search {display:block; position:absolute; top:15px; right:23px; width:22px; height:22px; background:url('../../images/KO/common/icon_sprite_01.png') -28px -49px no-repeat; border:0; text-indent:-9999px}
+#header .btn_search {display:block; position:absolute; top:15px; right:23px; width:22px; height:22px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_sprite_01.png') -28px -49px no-repeat; border:0; text-indent:-9999px}
 #header .btn_search:focus, #header .btn_search:active {outline:none !important;} /* 2021-09-27 추가 : outline 제거 */
 #header .default_menu {display: flex; float:right; height: 80px; line-height:24px; margin-top:-15px} /* 2022-04-29 수정 : 헤더 유틸메뉴 영역 메뉴명 수정 */
 .default_menu::before,.default_menu::after {content:""; display:block; clear:both}
@@ -898,7 +898,7 @@
 .default_menu ul::after {content:""; display:block; clear:both}
 .default_menu li {float: left;height: 80px;border-radius: 5px;} /* 2022-04-29 수정 : 헤더 유틸메뉴 영역 메뉴명 수정 */
 .default_menu li a {float:none; box-sizing:border-box; margin:0}
-.default_menu [class^="item_"]::before, /*.default_menu .language::before,*/ .default_menu .currency::before{background-image:url('../../images/KO/common/icon_sprite_01.png');background-repeat: no-repeat;} /* 2022-09-14 수정 : GNB 언어변경 버튼 수정 및 영문추가 */
+.default_menu [class^="item_"]::before, /*.default_menu .language::before,*/ .default_menu .currency::before{background-image:url('https://cdn.hddfs.com/front/images/KO/common/icon_sprite_01.png');background-repeat: no-repeat;} /* 2022-09-14 수정 : GNB 언어변경 버튼 수정 및 영문추가 */
 .default_menu [class^="item_"]::before {display:block; position:absolute; width:26px; height:24px; margin-left:-13px; background-position:0 0;} /* 2022-04-29 수정 : 헤더 유틸메뉴 영역 메뉴명 수정 */
 .default_menu .item_01::before {background-position:0 0;} /* 2022-04-29 수정 : 헤더 유틸메뉴 영역 메뉴명 수정 */
 .default_menu .item_02::before {background-position:0 -24px;} /* 2022-04-29 수정 : 헤더 유틸메뉴 영역 메뉴명 수정 */
@@ -907,7 +907,7 @@
 .default_menu .item_05::before {background-position:0 -96px} /* 2022-04-29 수정 : 헤더 유틸메뉴 영역 메뉴명 수정 */
 .default_menu em {display:block; padding:0 6px; line-height:16px; background:#ea2829; font-size:10px; letter-spacing:-1px; color:#fff; text-indent:0; text-align:center; border-radius:20px; position:absolute; top:23px; left:24px; font-weight:300} /* 2022-04-29 수정 : 헤더 유틸메뉴 영역 메뉴명 수정 */
 /* S : 2022-09-14 수정 : GNB 언어변경 버튼 수정 및 영문추가 */
-/* .default_menu .language a + div a {display:block; width:24px; height:24px; background:url('../../images/KO/common/icon_sprite_01.png') -27px 0 no-repeat; text-indent:-9999px; border-radius:50px; border:solid 2px #1b1e23}
+/* .default_menu .language a + div a {display:block; width:24px; height:24px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_sprite_01.png') -27px 0 no-repeat; text-indent:-9999px; border-radius:50px; border:solid 2px #1b1e23}
 .default_menu .language.ko:before, .default_menu .language a+div a.ko {background-position:-29px -2px}
 .default_menu .language a.ko + div a.ko {border:solid 2px #1b1e23}
 .default_menu .language.cn:before, .default_menu .language a+div a.cn {background-position:-29px -26px}
@@ -957,15 +957,15 @@
 .default_menu .currency:before {background-position:-2px -120px;}
 .default_menu .language:before, .default_menu .currency:before {display:block;position: absolute;width:24px;height:24px;margin-left:-12px;border-radius:50px; border:solid 2px #1b1e23;}
 .default_menu [class^="item_"]:hover > a, .default_menu .language:hover > a, .default_menu .currency:hover > a {color:#fff;text-indent: 0;}
-.default_menu [class^="item_"]:hover::before, /*.default_menu .language:hover::before,*/ .default_menu .currency:hover::before{background-image:url('../../images/KO/common/icon_sprite_01_hover.png');background-repeat: no-repeat;} /* 2022-09-14 수정 : GNB 언어변경 버튼 수정 및 영문추가 */
+.default_menu [class^="item_"]:hover::before, /*.default_menu .language:hover::before,*/ .default_menu .currency:hover::before{background-image:url('https://cdn.hddfs.com/front/images/KO/common/icon_sprite_01_hover.png');background-repeat: no-repeat;} /* 2022-09-14 수정 : GNB 언어변경 버튼 수정 및 영문추가 */
 .default_menu .language:hover:before, .default_menu .currency:hover:before {border-color:#fff;}
 .default_menu .language:hover div, .default_menu .currency:hover div {top:38px;}
 /* E : 2022-04-29 수정 : 헤더 유틸메뉴 영역 메뉴명 수정 */
 #header .hidden_menu {position:absolute; top:120px; right:41px; padding-top:24px; z-index:80} /* 2021-08-04 수정 : IE 상품상세 가려지는 문제로 right 20 → 41 수정 */
 #header .hidden_menu::before {content:""; display:block; width:1px; height:24px; background:#eef0f2; position:absolute; top:0; left:30px}
-#header .hidden_menu .btn {display:block; background:url('../../images/KO/common/hidden_menu_off.gif') 0 0 no-repeat; width:60px; height:60px; border-radius:60px; box-shadow:6px 6px 6px 0 rgba(0,0,0,.1); text-indent:-9999px}
+#header .hidden_menu .btn {display:block; background:url('https://cdn.hddfs.com/front/images/KO/common/hidden_menu_off.gif') 0 0 no-repeat; width:60px; height:60px; border-radius:60px; box-shadow:6px 6px 6px 0 rgba(0,0,0,.1); text-indent:-9999px}
 #header .hidden_menu .item {position:absolute; left:-40px; top:104px; border:solid 2px #1b1e23; border-radius:10px; background:#fff; width:140px; overflow:hidden; padding:30px 0 30px; display:none}
-#header .hidden_menu .item::before {content:""; display:block; position:absolute; top:-10px; left:59px; width:21px; height:10px; background:url('../../images/KO/common/bg_default_menu.png') center 0 no-repeat}
+#header .hidden_menu .item::before {content:""; display:block; position:absolute; top:-10px; left:59px; width:21px; height:10px; background:url('https://cdn.hddfs.com/front/images/KO/common/bg_default_menu.png') center 0 no-repeat}
 #header .hidden_menu .item .swiper-container {max-height:430px}
 #header .hidden_menu .item .swiper-wrapper {width:100px; margin:0 auto; text-align:center}
 .hidden_menu .item .swiper-slide {margin-top:10px}
@@ -975,12 +975,12 @@
 /* .hidden_menu .item .swiper-slide:nth-child(1) .img, .hidden_menu .item .swiper-slide:nth-child(2) .img {width:auto; height:auto; border-radius:0; padding:16px 0 10px} */
 .hidden_menu .item img {margin:0 auto; display:block}
 .hidden_menu .item p {line-height:20px; margin-top:6px; text-align:center}
-#header .hidden_menu.open .btn {background:url('../../images/KO/common/hidden_menu_on.gif') 0 0 no-repeat}
+#header .hidden_menu.open .btn {background:url('https://cdn.hddfs.com/front/images/KO/common/hidden_menu_on.gif') 0 0 no-repeat}
 .adsearch_dim {background:rgba(0,0,0,.5); position:fixed; top:120px; left:0; width:100%; height:calc(100% - 120px); z-index:89; display:none; cursor:pointer}
 
 .controller {}
 .controller button {display:block; border:0; position:absolute; left:0; width:100%; height:30px; z-index:10; background:#fff; text-indent:-9999px; cursor:pointer}
-.controller button::before {content:""; display:block; position:absolute; left:64px; top:13px; background:url('../../images/KO/common/icon_sprite_01.png') -27px -72px no-repeat; width:8px; height:4px}
+.controller button::before {content:""; display:block; position:absolute; left:64px; top:13px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_sprite_01.png') -27px -72px no-repeat; width:8px; height:4px}
 .controller button::after {content:""; display:block; position:absolute; left:20px; width:100px; height:1px; background:#eef0f2}
 .controller .btn-up {top:0}
 .controller .btn-up::after {bottom:0}
@@ -997,7 +997,7 @@
 .quick_link li a br {display:none}
 .quick_link li:hover a {background:#1b1e23; color:#fff; text-indent:0}
 .quick_link li:hover a br {display:block}
-.quick_link li a::after {content:""; display:block; width:30px; height:24px; position:absolute; top:33px; left:19px; background:url('../../images/KO/common/icon_sprite_01.png') 0 0 no-repeat}
+.quick_link li a::after {content:""; display:block; width:30px; height:24px; position:absolute; top:33px; left:19px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_sprite_01.png') 0 0 no-repeat}
 .quick_link li:hover a::after {top:10px}
 .quick_link li.ql_01 a::after {background-position:-51px -18px}
 .quick_link li.ql_01:hover a::after {background-position:-81px -18px}
@@ -1012,7 +1012,7 @@
 #gnb {-ms-overflow-style:none}
 #gnb h2 {display:none}
 #gnb strong {display:block; font-weight:600; color:#1b1e23; line-height:27px; cursor:pointer; position:relative}
-#gnb strong::after {content:""; display:block; width:14px; height:9px; position:absolute; top:10px; right:0; background:url('../../images/KO/common/icon_sprite_01.png') -27px -76px no-repeat}
+#gnb strong::after {content:""; display:block; width:14px; height:9px; position:absolute; top:10px; right:0; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_sprite_01.png') -27px -76px no-repeat}
 #gnb .open strong::after {transform:rotate(180deg)}
 #gnb .depth_02 strong::after, #gnb .depth_03 strong::after {display:none}
 #gnb .depth_02 strong:hover, #gnb .depth_03 strong:hover {text-decoration:underline; text-underline-position:under}
@@ -1032,7 +1032,7 @@
 #gnb .depth_03 a:hover {color:#c41314; text-decoration:none}
 #gnb .depth_02, #gnb .depth_03 {display:none}
 .navication .gnb_close {position:absolute; top:50px; right:-56px; background:#fff; width:24px; height:16px; text-indent:-9999px; border:0; display:none;}
-.navication .gnb_close::after {content:""; display:block; position:absolute; top:0; left:0; background:url('../../images/KO/common/icon_sprite_01.png') -26px -85px no-repeat; width:16px; height:16px}
+.navication .gnb_close::after {content:""; display:block; position:absolute; top:0; left:0; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_sprite_01.png') -26px -85px no-repeat; width:16px; height:16px}
 .gnb_dim {background:rgba(0,0,0,0); position:fixed; top:0; left:0; width:100%; height:100%; z-index:101; display:none; cursor:pointer}
 #gnb .depth_02.gnb_luxury {margin:14px 0 0 0}
 #gnb .gnb_luxury::after {content:""; display:block; clear:both}
@@ -1062,9 +1062,9 @@
 .location .box::after {content:""; display:block; clear:both}
 .location a.home {display:block; float:left}
 .location .box div {position:relative; margin-left:36px; float:left; z-index:90}
-.location .box div::before {content:""; display:block; width:5px; height:9px; position:absolute; top:5px; left:-16px; background:url('../../images/KO/common/icon_sprite_01.png') -51px 0 no-repeat}
+.location .box div::before {content:""; display:block; width:5px; height:9px; position:absolute; top:5px; left:-16px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_sprite_01.png') -51px 0 no-repeat}
 .location strong {display:block; position:relative; line-height:19px; padding-right:30px; cursor:pointer; font-weight:400}
-.location strong::after {content:""; display:block; position:absolute; right:0; top:0; background:url('../../images/KO/common/icon_sprite_01.png') -56px 0 no-repeat; width:18px; height:18px}
+.location strong::after {content:""; display:block; position:absolute; right:0; top:0; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_sprite_01.png') -56px 0 no-repeat; width:18px; height:18px}
 .location strong.expanded::after {transform:rotate(180deg)}
 .location ul {position:absolute; top:25px; left:-10px; border:solid 1px #1b1e23; border-radius:10px; min-width:120px; padding:14px 0; background:#fff; box-shadow:6px 6px 6px 0 rgba(0,0,0,.1); display:none;} /* 2021-06-23 수정 : 로케이션 메뉴 디폴트 display:none 처리 */
 .location li {line-height:29px}
@@ -1086,7 +1086,7 @@
 #footer .family_site {float:right; width:174px; position:relative; text-align:left}
 #footer .family_site button {display:block; position:relative; background:#353b45; border:0; width:100%; height:31px; line-height:31px; color:#9aa3b1; padding-left:10px; text-align:left; font-size:13px; cursor:pointer}
 #footer .family_site button::before {content:""; display:block; position:absolute; top:0; right:31px; width:1px; height:100%; background:#5c6677}
-#footer .family_site button::after {content:""; display:block; position:absolute; top:13px; right:11px; width:9px; height:5px; background:url('../../images/KO/common/icon_footer.png') 0 -142px no-repeat}
+#footer .family_site button::after {content:""; display:block; position:absolute; top:13px; right:11px; width:9px; height:5px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_footer.png') 0 -142px no-repeat}
 #footer .family_site.open button::after {transform:rotate(180deg)}
 #footer .family_site .list {display:none; position:absolute; width:100%; height:350px; overflow-y:auto; background:#353b45; font-size:13px; color:#5c6677; z-index:10; padding:10px 0 10px 10px; border-top:solid 1px #5c6677}
 #footer .family_site .list p {line-height:19px; margin-top:10px}
@@ -1098,7 +1098,7 @@
 #footer .copy::after {content:""; display:block; clear:both}
 #footer .copyright {float:left}
 .copyright .logo {}
-.copyright .logo span {display:block; width:140px; height:37px; background:url('../../images/KO/common/logo_footer.png') 0 0 no-repeat; text-indent:-9999px}
+.copyright .logo span {display:block; width:140px; height:37px; background:url('https://cdn.hddfs.com/front/images/KO/common/logo_footer.png') 0 0 no-repeat; text-indent:-9999px}
 .copyright .logo strong {display:block; line-height:27px; font-size:18px; font-weight:600; margin-top:24px}
 .copyright ul {font-size:13px}
 .copyright li {margin-top:4px}
@@ -1106,7 +1106,7 @@
 .copyright li:nth-child(3) {margin-top:12px}
 .copyright li::after {content:""; display:block; clear:both}
 .copyright li span {display:block; float:left; position:relative; margin-left:17px}
-.copyright li span::before {content:""; display:block; position:absolute; top:4px; left:-9px; width:1px; height:12px; background:url('../../images/KO/common/icon_footer.png') 0 0 no-repeat}
+.copyright li span::before {content:""; display:block; position:absolute; top:4px; left:-9px; width:1px; height:12px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_footer.png') 0 0 no-repeat}
 .copyright li span:first-child {margin-left:0}
 .copyright li span:first-child::before {display:none}
 .copyright li a {display:block; float:left; background:#353b45; color:#9aa3b1; font-size:12px; height:24px; line-height:24px; padding:0 10px; margin-left:6px}
@@ -1126,20 +1126,20 @@
 .escrow .list_prize li a::before {content:""; display:block; position:absolute; top:0px; left:0; width:48px; height:46px;}
 
 .escrow .ismsp {padding-left:60px; min-height:34px !important; }
-.escrow .ismsp::before {content:""; display:block; position:absolute; top:3px; left:0; width:48px; height:34px; background:url('../../images/KO/common/icon_footer.png') 0 -108px no-repeat}
+.escrow .ismsp::before {content:""; display:block; position:absolute; top:3px; left:0; width:48px; height:34px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_footer.png') 0 -108px no-repeat}
 
 /* S: 2021-12-10 award 추가*/
-.escrow .award a::before {background:url('../../images/KO/common/icon_footer.png') 0 -142px no-repeat}
+.escrow .award a::before {background:url('https://cdn.hddfs.com/front/images/KO/common/icon_footer.png') 0 -142px no-repeat}
 /* E: 2021-12-10 award 추가*/
 
 /* S: 2021-12-10 first brand 추가*/
-.escrow .first a::before {background:url('../../images/KO/common/icon_footer.png') 0 -187px no-repeat}
+.escrow .first a::before {background:url('https://cdn.hddfs.com/front/images/KO/common/icon_footer.png') 0 -187px no-repeat}
 /* E: 2021-12-10 first brand 추가*/
 
 /* S: 2021-06-23 추가 */
 #footer .sns_link {margin-top:25px;}
 #footer .sns_link:after {clear:both; content:''; display:block;}
-#footer .sns_link a {width:48px; height:48px; font-size:0; background-image:url('../../images/KO/common/icon_footer.png'); background-repeat:no-repeat; float:left; display:inline-block;}
+#footer .sns_link a {width:48px; height:48px; font-size:0; background-image:url('https://cdn.hddfs.com/front/images/KO/common/icon_footer.png'); background-repeat:no-repeat; float:left; display:inline-block;}
 #footer .sns_link a + a {margin-left:16px;}
 #footer .sns_link .facebook {background-position:0 -12px;}
 #footer .sns_link .instagram {background-position:0 -60px;}
@@ -1172,8 +1172,8 @@
 .advanced_search .hashtag_area .tag {padding-top:8px; max-height:160px; overflow:auto;}
 .advanced_search .hashtag_area .tag::after {content:""; display:block; clear:both}
 .advanced_search .hashtag_area button {display:block; float:left; color:#5c6677; margin:12px 10px 0 0; border:solid 1px #eef0f2; border-radius:40px; max-width:155px; height:35px; text-align:center; line-height:34px; padding:0 15px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;font-size: 13px;} /* 2021-06-11 : 폰트 사이즈 추가 */
-.advanced_search .hashtag_area button.up {background:url('../../images/KO/common/icon_up.png') calc(100% - 8px) 14px no-repeat; padding-right:20px}
-.advanced_search .search_close {display:block; width:22px; height:22px; position:absolute; top:30px; right:50%; margin-right:-540px; background:url('../../images/KO/common/icon_controller.png') 0 -109px no-repeat; text-indent:-9999px} /* 21-06-25 닫힘 버튼 위치 수정 */
+.advanced_search .hashtag_area button.up {background:url('https://cdn.hddfs.com/front/images/KO/common/icon_up.png') calc(100% - 8px) 14px no-repeat; padding-right:20px}
+.advanced_search .search_close {display:block; width:22px; height:22px; position:absolute; top:30px; right:50%; margin-right:-540px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_controller.png') 0 -109px no-repeat; text-indent:-9999px} /* 21-06-25 닫힘 버튼 위치 수정 */
 .advanced_search .sort_wrap {margin-top:30px}
 .advanced_search .sort_result span {margin-right:0}
 .advanced_search .check_group input[type='checkbox']:checked + label > em, .advanced_search .check_group input[type='radio']:checked + label > em {color:#ea2829}
@@ -1184,10 +1184,10 @@
 .search_autocomplete .normal_box {}
 .search_autocomplete .brand_shop {margin-right:40px; margin-left:40px} /* 21-06-25 브랜드 자동완성 닫힘버튼과 겹침 수정 */
 .search_autocomplete .brand_shop::after {content:""; display:block; clear:both}
-.search_autocomplete .brand_shop .tag {margin-right:30px;display:block; float:left; width:81px; height:28px; background:url('../../images/KO/common/icon_controller.png') -138px -67px no-repeat; text-indent:-9999px}
+.search_autocomplete .brand_shop .tag {margin-right:30px;display:block; float:left; width:81px; height:28px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_controller.png') -138px -67px no-repeat; text-indent:-9999px}
 /*.search_autocomplete .brand_shop a {display:block; float:left; font-size:14px; font-weight:600; color:#1b1e23; line-height:28px; margin-left:30px; position:relative; padding-right:26px; max-width:224px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}*/
 .search_autocomplete .brand_shop a {display:block; float:left; font-size:14px; font-weight:600; color:#1b1e23; line-height:28px; margin-right:30px; position:relative; padding-right:26px; max-width:224px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;} /* 2021-08-03 : 여백 수정 */
-.search_autocomplete .brand_shop a::after {content:""; display:block; width:7px; height:10px; background:url('../../images/KO/common/icon_controller.png') -50px -105px no-repeat; position:absolute; top:10px; right:4px}
+.search_autocomplete .brand_shop a::after {content:""; display:block; width:7px; height:10px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_controller.png') -50px -105px no-repeat; position:absolute; top:10px; right:4px}
 .search_autocomplete .searchresults_list {margin-top:40px}
 .search_autocomplete .searchresults_list::after {content:""; display:block; clear:both}
 .search_autocomplete .searchresults_list [class^="searchresults_"] {float:left; width:33.3333%; padding-left:40px; border-left:solid 1px #eef0f2; height:292px; overflow-y:auto; color:#1b1e23}
@@ -1200,7 +1200,7 @@
 .searchresults_brand em {line-height:24px}
 .searchresults_brand a:first-child {margin-top:0}
 .searchresults_brand a::before {content:"B"; display:block; font-size:12px; color:#fff; font-weight:600; background:#dde0e5; border-radius:24px; width:24px; height:24px; text-align:center; line-height:24px; float:left; position:absolute; left:0; top:0}
-.searchresults_brand a::after {content:""; display:block; width:4px; height:8px; background:url('../../images/KO/common/icon_controller.png') -36px -105px no-repeat; line-height:24px; margin-left:10px; position:absolute; right:0; top:9px}
+.searchresults_brand a::after {content:""; display:block; width:4px; height:8px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_controller.png') -36px -105px no-repeat; line-height:24px; margin-left:10px; position:absolute; right:0; top:9px}
 .searchresults_word a {max-width:260px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;} /* 21-06-25 추가 : 검색 자동완성 말줄임 */
 .searchresults_category {}
 .searchresults_category strong {white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:block} /* 21-06-25 추가 : 검색 자동완성 말줄임 */
@@ -1242,7 +1242,7 @@ div {scrollbar-arrow-color:#fff; scrollbar-Track-Color:#fff; scrollbar-base-colo
 .product_module .tnr_font {display:block; position:absolute; top:0; left:20px; padding-top:8px; letter-spacing:-1px; z-index:20}
 .product_module .tnr_font::after {content:""; display:block; width:45px; height:4px; background:#1b1e23; position:absolute; top:0; left:0}
 .product_module .tnr_font span {display:inline-block; font-size:32px; font-weight:600; line-height:36px; margin-top:-15px}
-.product_module em.video {display:block; width:24px; height:24px; position:absolute; top:20px; right:20px; background:url('../../images/KO/common/icon_controller.png') -115px 8px no-repeat rgba(0,0,0,.1); text-indent:-9999px; border-radius:50px; overflow:hidden; z-index:20}
+.product_module em.video {display:block; width:24px; height:24px; position:absolute; top:20px; right:20px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_controller.png') -115px 8px no-repeat rgba(0,0,0,.1); text-indent:-9999px; border-radius:50px; overflow:hidden; z-index:20}
 .product_module .img {display:block; width:100%; height:100%; overflow:hidden; position:relative; /*padding:20px*/} /* 2021-06-30 : 수정 - padding 제거 */
 .product_module .img::before {content:""; display:block; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(12,54,122,.04)}
 .product_module .img img {width:100%}
@@ -1279,8 +1279,8 @@ div {scrollbar-arrow-color:#fff; scrollbar-Track-Color:#fff; scrollbar-base-colo
 
 .product_module .product_itme.brand_rep .img_w {padding:0}
 .product_module .product_itme .img_w::before {content:""; display:block; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(12,54,122,.04);}
-/* .product_module .product_itme .img_w em.btn_play {display:inline-block; width:24px; height:24px; background:url('../../images/KO/common/btn_play02.png') no-repeat center center; text-indent:-1000px; overflow:hidden; position:absolute; top:20px; right:20px;} */
-.product_module .product_itme .img_w em.btn_play {display: block; width: 24px; height: 24px; position: absolute; top: 20px; right: 20px; background: url(../../images/KO/common/icon_controller.png) -115px 8px no-repeat rgba(0,0,0,.1); text-indent: -9999px; border-radius: 50px; overflow: hidden;}
+/* .product_module .product_itme .img_w em.btn_play {display:inline-block; width:24px; height:24px; background:url('https://cdn.hddfs.com/front/images/KO/common/btn_play02.png') no-repeat center center; text-indent:-1000px; overflow:hidden; position:absolute; top:20px; right:20px;} */
+.product_module .product_itme .img_w em.btn_play {display: block; width: 24px; height: 24px; position: absolute; top: 20px; right: 20px; background: url(https://cdn.hddfs.com/front/images/KO/common/icon_controller.png) -115px 8px no-repeat rgba(0,0,0,.1); text-indent: -9999px; border-radius: 50px; overflow: hidden;}
 .product_module .product_itme .img_w img {width:100%; height:auto;}
 .product_module .product_itme .img_w.img_vertical {padding:0; text-align:center; font-size:0;}
 .product_module .product_itme .img_w.img_vertical img {width:auto; position:absolute; top:50%; left:50%; -webkit-transform:translate(-50%); -ms-transform:translate(-50%); transform:translate( -50%, -50%); z-index:-1;}
@@ -1314,10 +1314,10 @@ div {scrollbar-arrow-color:#fff; scrollbar-Track-Color:#fff; scrollbar-base-colo
 .product_module.text_banner dt {color:#1b1e23; font-size:24px; font-weight:600; overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; word-wrap:break-word; line-height:36px; height:72px; white-space:normal}
 .product_module.text_banner dd {display:block; margin-top:24px; line-height:18px}
 .product_module.text_banner .link {display:block; position:absolute; bottom:8px; left:14px}
-.product_module.text_banner .link::after {content:""; display:block; width:7px; height:11px; position:absolute; left:80px; top:5px; background:url('../../images/KO/common/icon_controller.png') 0 -88px no-repeat}
+.product_module.text_banner .link::after {content:""; display:block; width:7px; height:11px; position:absolute; left:80px; top:5px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_controller.png') 0 -88px no-repeat}
 
 .product_module.coupon {}
-.product_module.coupon .product_itme {height:252px; background:url('../../images/KO/main/img_coupon.png') 0 0 no-repeat; text-align:center; position:relative; display:block}
+.product_module.coupon .product_itme {height:252px; background:url('https://cdn.hddfs.com/front/images/KO/main/img_coupon.png') 0 0 no-repeat; text-align:center; position:relative; display:block}
 .product_module.coupon strong {display:block; line-height:38px; padding:23px 0; color:#ea2829; font-size:32px; font-weight:bold; letter-spacing:-1px}
 .product_module.coupon strong em {font-size:24px}
 .product_module.coupon dl {font-size:14px; margin-top:26px} /* 2021-06-11 : 수정 */
@@ -1329,7 +1329,7 @@ div {scrollbar-arrow-color:#fff; scrollbar-Track-Color:#fff; scrollbar-base-colo
 .product_module.coupon strong em {font-size:24px}
 .product_module.coupon .over_million strong {font-size:28px;}
 .product_module.coupon .over_million strong em {font-size:22px;}
-.product_module.coupon .product_itme.coupon162 {width:162px; height:187px; background:url('../../images/KO/coupon/bg_coupon162.png') 0 0 no-repeat; text-align:center; position:relative; display:block}
+.product_module.coupon .product_itme.coupon162 {width:162px; height:187px; background:url('https://cdn.hddfs.com/front/images/KO/coupon/bg_coupon162.png') 0 0 no-repeat; text-align:center; position:relative; display:block}
 .product_module.coupon .coupon162 strong {padding:12px 0; font-size:22px;}
 .product_module.coupon .coupon162 strong em {font-size:14px;}
 .product_module.coupon .coupon162.less_million strong {font-size:28px;}
@@ -1337,18 +1337,18 @@ div {scrollbar-arrow-color:#fff; scrollbar-Track-Color:#fff; scrollbar-base-colo
 .product_module.coupon .coupon162 dl {margin-top:22px;}
 .product_module.coupon .coupon162 dd { margin-top:0; line-height:15px; font-size:12px;}
 .product_module.coupon .coupon162 .link { left:45px;}
-.product_module.coupon .product_itme.coupon252 {width:252px; height:275px; background:url('../../images/KO/coupon/bg_coupon252.png') 0 0 no-repeat; text-align:center; position:relative; display:block} /* 2021-06-11 : 수젇 */
+.product_module.coupon .product_itme.coupon252 {width:252px; height:275px; background:url('https://cdn.hddfs.com/front/images/KO/coupon/bg_coupon252.png') 0 0 no-repeat; text-align:center; position:relative; display:block} /* 2021-06-11 : 수젇 */
 .product_module.coupon .coupon252 .link { left:90px;}
 
 .product_module.benefit {}
-.product_module.benefit .product_itme {height:230px; background:url('../../images/KO/main/img_coupon.png') /*-212px*/ 100% 0 no-repeat; text-align:center; position:relative; padding-top:58px} /* 2021-08-24 수정 : 이미지 및 배경 포지션 수정 */
+.product_module.benefit .product_itme {height:230px; background:url('https://cdn.hddfs.com/front/images/KO/main/img_coupon.png') /*-212px*/ 100% 0 no-repeat; text-align:center; position:relative; padding-top:58px} /* 2021-08-24 수정 : 이미지 및 배경 포지션 수정 */
 .product_module.benefit p {color:#1b1e23; font-size:16px; font-weight:600; line-height:24px}
 .product_module.benefit strong {display:block; line-height:38px; color:#ea2829; font-size:32px; font-weight:bold; letter-spacing:-1px; margin-top:6px}
 .product_module.benefit strong em {font-size:24px}
 .product_module.benefit span {display:block; padding:0 40px; font-size:15px; color:#5c6677; margin-top:6px}
 .product_module.benefit .link {border:solid 1px #1b1e23; background:#fff; width:78px; height:36px; line-height:36px; border-radius:40px; font-size:12px; font-weight:600; position:absolute; left:65px; bottom:0; padding:0; margin:0}
 
-.product_module.benefit .product_itme.benefit158 {width:162px; height:173px; padding-top:43px; background:url('../../images/KO/coupon/bg_benefit158.png') 0 0 no-repeat; text-align:center; position:relative; display:block}
+.product_module.benefit .product_itme.benefit158 {width:162px; height:173px; padding-top:43px; background:url('https://cdn.hddfs.com/front/images/KO/coupon/bg_benefit158.png') 0 0 no-repeat; text-align:center; position:relative; display:block}
 /* .product_module.benefit p {font-size:12px; color:#788497;} 2021-06-24 디자인 스타일 적용 */
 .product_module.benefit .benefit158 strong {padding:0; margin-top:0; line-height:28px;}
 .product_module.benefit .benefit158 span {padding:0; font-size:12px;}
@@ -1363,7 +1363,7 @@ div {scrollbar-arrow-color:#fff; scrollbar-Track-Color:#fff; scrollbar-base-colo
 .product_module button.link:disabled {background:#dde0e5; color:#abb2be; opacity:1; border:none;}
 
 .pro_banner a.more {display:block; width:55px; height:20px; line-height:20px; position:relative; font-weight:600; color:#5c6677; margin:35px auto 0}
-.pro_banner a.more::after {content:""; display:block; width:10px; height:10px; background:url('../../images/KO/common/icon_controller.png') -50px 0 no-repeat; position:absolute; top:5px; right:0}
+.pro_banner a.more::after {content:""; display:block; width:10px; height:10px; background:url('https://cdn.hddfs.com/front/images/KO/common/icon_controller.png') -50px 0 no-repeat; position:absolute; top:5px; right:0}
 
 html {overflow: visible;}
 
@@ -1455,7 +1455,7 @@ html {overflow: visible;}
 	display: block;
 	height: 18px;
 	width: 18px;
-	background: url(../../images/KO/common/ico_common_2021.png) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/ico_common_2021.png) no-repeat;
 	background-size: 750px 750px;
 	background-position: -195px 0;
 	content: "";
@@ -1482,7 +1482,7 @@ html {overflow: visible;}
 	width: 36px;
 	height: 0;
 	padding-top: 36px;
-	background: url(../../images/KO/common/n/nav_benefit.gif) 0 0 no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/nav_benefit.gif) 0 0 no-repeat;
 	background-size: contain;
 	text-indent: -9999px;
 }
