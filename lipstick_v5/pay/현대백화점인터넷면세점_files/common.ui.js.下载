@@ -1826,7 +1826,7 @@ $(document).ready(function(){
 // S: 2021-09-16 lazy 추가
 var prd_list_new_lazy = function () {
 	$('.product_list img').lazyload({
-		placeholder : '../../images/KO/common/noimg.png', // 로딩 이미지
+		placeholder : 'https://cdn.hddfs.com/front/images/KO/common/noimg.png', // 로딩 이미지
 		threshold: 0, // 접근 ~px 이전에 로딩을 시도한다.
 		load : function(){ // 로딩시에 이벤트
 			$(this).attr('alt',$(this).attr("data-srcset"));

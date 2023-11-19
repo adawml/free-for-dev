@@ -63,7 +63,7 @@
 	overflow: hidden;
 	width: 16px;
 	height: 16px;
-	background: url(../../images/KO/common/n/icon_edit_2.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_edit_2.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -149,7 +149,7 @@
 	        transform: translateY(-50%);
 	width: 16px;
 	height: 16px;
-	background: url(../../images/KO/common/n/icon_alram_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_alram_1.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -184,7 +184,7 @@
 	left: 8px;
 	width: 16px;
 	height: 16px;
-	background: url(../../images/KO/common/n/icon_edit_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_edit_1.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -255,100 +255,100 @@
 	/* level 정의 필요 */
 }
 .my-grade .my-grade__info .my-grade__online.lv_on_up001 a::before {
-	background-image: url(../../images/KO/coupon/lv_on_up001.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_on_up001.png);
 }
 .my-grade .my-grade__info .my-grade__online.lv_on_up002 a::before {
-	background-image: url(../../images/KO/coupon/lv_on_up002.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_on_up002.png);
 }
 .my-grade .my-grade__info .my-grade__online.lv_on_up003 a::before {
-	background-image: url(../../images/KO/coupon/lv_on_up003.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_on_up003.png);
 }
 .my-grade .my-grade__info .my-grade__online.lv_on_up004 a::before {
-	background-image: url(../../images/KO/coupon/lv_on_up004.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_on_up004.png);
 }
 .my-grade .my-grade__info .my-grade__online.lv_on_up005 a::before {
-	background-image: url(../../images/KO/coupon/lv_on_up005.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_on_up005.png);
 }
 .my-grade .my-grade__info .my-grade__online.lv_on_up006 a::before {
-	background-image: url(../../images/KO/coupon/lv_on_up006.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_on_up006.png);
 }
 .my-grade .my-grade__info .my-grade__online.lv_on_up007 a::before {
-	background-image: url(../../images/KO/coupon/lv_on_up007.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_on_up007.png);
 }
 .my-grade .my-grade__info .my-grade__online.lv_on_up008 a::before {
-	background-image: url(../../images/KO/coupon/lv_on_up008.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_on_up008.png);
 }
 .my-grade .my-grade__info .my-grade__offine.lv_off_up001 a::before {
-	background-image: url(../../images/KO/coupon/lv_off_up001.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_off_up001.png);
 }
 .my-grade .my-grade__info .my-grade__offine.lv_off_up002 a::before {
-	background-image: url(../../images/KO/coupon/lv_off_up002.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_off_up002.png);
 }
 .my-grade .my-grade__info .my-grade__offine.lv_off_up003 a::before {
-	background-image: url(../../images/KO/coupon/lv_off_up003.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_off_up003.png);
 }
 .my-grade .my-grade__info .my-grade__offine.lv_off_up004 a::before {
-	background-image: url(../../images/KO/coupon/lv_off_up004.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_off_up004.png);
 }
 .my-grade .my-grade__info .my-grade__offine.lv_off_up005 a::before {
-	background-image: url(../../images/KO/coupon/lv_off_up005.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_off_up005.png);
 }
 .my-grade .my-grade__info .my-grade__offine.lv_off_up006 a::before {
-	background-image: url(../../images/KO/coupon/lv_off_up006.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_off_up006.png);
 }
 .my-grade .my-grade__info .my-grade__offine.lv_off_up007 a::before {
-	background-image: url(../../images/KO/coupon/lv_off_up007.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_off_up007.png);
 }
 .my-grade .my-grade__info .my-grade__offine.lv_off_up008 a::before {
-	background-image: url(../../images/KO/coupon/lv_off_up008.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_off_up008.png);
 }
 .my-grade .my-grade__info .my-grade__offine.lv_off_up009 a::before {
-	background-image: url(../../images/KO/coupon/lv_off_up009.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_off_up009.png);
 }
 .my-grade .my-grade__info .my-grade__offine.lv_off_up010 a::before {
-	background-image: url(../../images/KO/coupon/lv_off_up010.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_off_up010.png);
 }
 .my-grade .my-grade__info .my-grade__offine.lv_off_up011 a::before {
-	background-image: url(../../images/KO/mypage/lv_off_up011.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/mypage/lv_off_up011.png);
 }
 .my-grade .my-grade__info .my-grade__offine.lv_off_up012 a::before {
-	background-image: url(../../images/KO/coupon/lv_off_up012.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_off_up012.png);
 }
 .my-grade .my-grade__info .my-grade__offine.lv_off_up013 a::before {
-	background-image: url(../../images/KO/coupon/lv_off_up013.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_off_up013.png);
 }
 .my-grade .my-grade__info .my-grade__offine.lv_off_up014 a::before {
-	background-image: url(../../images/KO/coupon/lv_off_up014.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_off_up014.png);
 }
 .my-grade .my-grade__info .my-grade__offine.lv_off_up015 a::before {
-	background-image: url(../../images/KO/coupon/lv_off_up015.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_off_up015.png);
 }
 .my-grade .my-grade__info .my-grade__club {
 	/* //level 정의 필요 */
 }
 .my-grade .my-grade__info .my-grade__club.lv_bcos_up000 a::before {
-	background-image: url(../../images/KO/coupon/lv_beaut_000.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_beaut_000.png);
 }
 .my-grade .my-grade__info .my-grade__club.lv_bcos_up001 a::before {
-	background-image: url(../../images/KO/coupon/lv_beaut_001.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_beaut_001.png);
 }
 .my-grade .my-grade__info .my-grade__club.lv_bcos_up002 a::before {
-	background-image: url(../../images/KO/coupon/lv_beaut_002.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_beaut_002.png);
 }
 .my-grade .my-grade__info .my-grade__club.lv_bcos_up003 a::before {
-	background-image: url(../../images/KO/coupon/lv_beaut_003.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_beaut_003.png);
 }
 .my-grade .my-grade__info .my-grade__club.lv_bcos_up004 a::before {
-	background-image: url(../../images/KO/coupon/lv_beaut_004.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_beaut_004.png);
 }
 .my-grade .my-grade__info .my-grade__club.lv_bcos_up005 a::before {
-	background-image: url(../../images/KO/coupon/lv_beaut_005.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_beaut_005.png);
 }
 .my-grade .my-grade__info .my-grade__club.lv_bcos_up006 a::before {
-	background-image: url(../../images/KO/coupon/lv_beaut_006.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_beaut_006.png);
 }
 .my-grade .my-grade__info .my-grade__club.lv_bcos_up007 a::before {
-	background-image: url(../../images/KO/coupon/lv_beaut_007.png);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/coupon/lv_beaut_007.png);
 }
 .my-grade .my-grade__info .my-grade__offine::before,
 .my-grade .my-grade__info .my-grade__club::before {
@@ -448,21 +448,21 @@
 	content: "";
 }
 .my-present .my-present__reserve .my-present__tit::before {
-	background-image: url(../../images/KO/common/n/icon_benefit_1.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_benefit_1.svg);
 }
 .my-present .my-present__coupon .my-present__tit::before {
-	background-image: url(../../images/KO/common/n/icon_coupon_1.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_coupon_1.svg);
 }
 .my-present .my-present__h-point .my-present__tit::before {
-	background-image: url(../../images/KO/common/n/icon_point_1.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_point_1.svg);
 }
 .my-present .my-present__card .my-present__tit::before {
-	background-image: url(../../images/KO/common/n/icon_card_1.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_card_1.svg);
 }
 .my-present .my-present__h-point .hpoint-reload::after {
 	content: "";
 	display:inline-block;
-	background: url(../../images/KO/common/n/ic-refresh.svg) no-repeat center center;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/ic-refresh.svg) no-repeat center center;
 	width: 16px;
 	height: 16px;
 	margin-left: 4px;
@@ -536,7 +536,7 @@
 	display: block;
 	width: 16px;
 	height: 16px;
-	background: url(../../images/KO/common/n/icon_passport_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_passport_1.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -616,7 +616,7 @@
 	display: block;
 	width: 16px;
 	height: 16px;
-	background: url(../../images/KO/common/n/icon_plane_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_plane_1.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -678,7 +678,7 @@
 	display: block;
 	width: 20px;
 	height: 20px;
-	background: url(../../images/KO/common/n/icon_double_arrow_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_double_arrow_1.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -827,7 +827,7 @@
 	width: 10px;
 	height: 0;
 	padding-top: 20px;
-	background: url(../../images/KO/common/n/icon_tag_new_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_tag_new_1.svg) no-repeat;
 	background-size: contain;
 	text-indent: -9999px;
 	font-size: 0;
@@ -940,7 +940,7 @@
 	content: "";
 }
 .list-order__content .order-product__status.is-finish::after {
-	background-image: url(../../images/KO/common/n/icon_check_1.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_check_1.svg);
 }
 .list-order__content .order-product__order-num a {
 	font-weight: 600;
@@ -976,14 +976,14 @@
 	content: "";
 }
 .btn-square.type-pickup::before {
-	background-image: url(../../images/KO/common/n/icon_pickup_1.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_pickup_1.svg);
 }
 .btn-square.type-voucher::before {
-	background-image: url(../../images/KO/common/n/icon_voucher_1.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_voucher_1.svg);
 }
 .btn-square.type-review::before {
 	height: 16px;
-	background-image: url(../../images/KO/common/n/icon_edit_2.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_edit_2.svg);
 }
 
 .list-product__cart.type-review .product__item.product__item--row .wrap-product__info, .list-product__cart.type-mypage .product__item.product__item--row .wrap-product__info {
@@ -1115,7 +1115,7 @@
 	width: 16px;
 	height: 16px;
 	margin-right: 4px;
-	background: url(../../images/KO/common/n/icon_plane_2.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_plane_2.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -1131,7 +1131,7 @@
 	display: block;
 	width: 16px;
 	height: 16px;
-	background: url(../../images/KO/common/n/icon_double_arrow_2.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_double_arrow_2.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -1162,7 +1162,7 @@
 	content: "";
 }
 .list-product__cart .order-product__info .order-product__detail.type-departure.type-ship .order-product__route::before {
-	background-image: url(../../images/KO/common/n/icon_ship_1.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_ship_1.svg);
 }
 
 .wrap-list-sch[aria-labelledby=tab__order-history--2] .list-product__cart.type-mypage .product__item.product__item--row .wrap-product__info {
@@ -1437,10 +1437,10 @@
 	content: "";
 }
 .wrap-customer-center .customer-center__inquiry a::before {
-	background-image: url(../../images/KO/common/n/icon_customer_1.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_customer_1.svg);
 }
 .wrap-customer-center .customer-center__faq a::before {
-	background-image: url(../../images/KO/common/n/icon_faq_1.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_faq_1.svg);
 }
 
 .order__no-content {
@@ -1645,7 +1645,7 @@
 	    transform: translateY(-50%);
 	    width: 16px;
 	    height: 16px;
-	    background: url(../../images/KO/common/n/icon_calendar_1.svg) no-repeat;
+	    background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_calendar_1.svg) no-repeat;
 	    background-size: contain;
 	    pointer-events: none;
 	    content: '';
@@ -1727,7 +1727,7 @@
 	width: 32px;
 	height: 0;
 	padding-top: 32px;
-	background: url(../../images/KO/common/n/icon_zoom_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_zoom_1.svg) no-repeat;
 	background-size: contain;
 	text-indent: -9999px;
 	font-size: 0;
@@ -1941,13 +1941,13 @@
 	content: "";
 }
 .list-pickup > li .list-pickup__tit.type-location::before {
-	background-image: url(../../images/KO/common/n/icon_pickup_2.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_pickup_2.svg);
 }
 .list-pickup > li .list-pickup__tit.type-inquiry::before {
-	background-image: url(../../images/KO/common/n/icon_customer_2.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_customer_2.svg);
 }
 .list-pickup > li .list-pickup__tit.type-customer::before {
-	background-image: url(../../images/KO/common/n/icon_time_1.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_time_1.svg);
 }
 .list-pickup > li .list-pickup__detail {
 	line-height: 1.42;

@@ -90,7 +90,7 @@
 	        transform: translate(-50%, -50%);
 	width: 18px;
 	height: 18px;
-	background: url(../../images/KO/common/n/icon_arrow_2.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_arrow_2.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -354,7 +354,7 @@
 	-webkit-transform: translateY(-50%);
 	        transform: translateY(-50%);
 	padding-top: 20px;
-	background: url(../../images/KO/common/n/icon_calendar_1.svg) 50% 50% no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_calendar_1.svg) 50% 50% no-repeat;
 	background-size: 20px 20px;
 	content: "";
 }
@@ -439,7 +439,7 @@
 .wrap-form__input select,
 .wrap-form__select select {
 	padding: 0 40px 0 0;
-	background: url(../../images/KO/common/n/icon_arrow_10.svg) no-repeat right center;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_arrow_10.svg) no-repeat right center;
 	background-size: 32px;
 	line-height: 48px;
 	font-size: 16px;
@@ -490,7 +490,7 @@
 	height: 10px;
 	-webkit-filter: brightness(0) invert(1);
 	        filter: brightness(0) invert(1);
-	background: url(../../images/KO/common/n/icon_close_1.svg) 50% 50% no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_close_1.svg) 50% 50% no-repeat;
 	background-size: 10px 10px;
 }
 .wrap-form__input .txt-error,
@@ -720,7 +720,7 @@
 	display: block;
 	width: 16px;
 	height: 16px;
-	background: url(../../images/KO/common/n/icon_attention_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_attention_1.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -799,7 +799,7 @@
 	opacity: 0.15;
 	width: 16px;
 	height: 16px;
-	background: url(../../images/KO/common/n/icon_check_2.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_check_2.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -1120,7 +1120,7 @@
 	        transform: translateY(-50%);
 	width: 64px;
 	height: 20px;
-	background: url(../../images/KO/common/n/icon_fly_route.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_fly_route.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -1292,13 +1292,13 @@
 	opacity: 0.2;
 	border-radius: 2px;
 	border: 1px solid #5c6677;
-	background: url(../../images/KO/common/n/icon_check_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_check_1.svg) no-repeat;
 	background-size: contain;
 }
 .wrap-download-coupon .wrap-form__checkbox label input:checked + .wrap-label::before {
 	opacity: 1;
 	background-color: #1b1e23;
-	background-image: url(../../images/KO/common/n/icon_check_4.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_check_4.svg);
 	border-color: #1b1e23;
 }
 .wrap-download-coupon .wrap-form__radiobox label input + .wrap-label::before {
@@ -1506,12 +1506,12 @@
 	left: 16px;
 	width: 18px;
 	height: 18px;
-	background: url(../../images/KO/common/n/icon_pin_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_pin_1.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
 .box-float-layer.wrap-search-sch .wrap-list-sch .list-unit > li > .wrap-form__input .pin.on::before {
-	background-image: url(../../images/KO/common/n/icon_pin_1_fill.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_pin_1_fill.svg);
 }
 .box-float-layer.wrap-search-sch .wrap-list-sch .list-unit > li > .wrap-form__input .wrap-sch-detail input {
 	position: relative;
@@ -1778,12 +1778,12 @@
 	display: block;
 	width: 120px;
 	height: 120px;
-	background: url(../../images/KO/common/n/img_no_result.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/img_no_result.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
 .box-float-layer.wrap-search-sch .no-result .no-result__info.type-boat::before {
-	background-image: url(../../images/KO/common/n/img_no_result_boat.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/img_no_result_boat.svg);
 }
 .box-float-layer.wrap-search-sch .no-result .no-result__info + .tit-layer {
 	margin-top: 35px;
@@ -1864,7 +1864,7 @@
 	height: 16px;
 	-webkit-transition: all 0.2s linear;
 	transition: all 0.2s linear;
-	background: url(../../images/KO/common/n/icon_arrow_6.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_arrow_6.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -1898,7 +1898,7 @@
 	display: block;
 	width: 160px;
 	height: 24px;
-	background: url(../../images/KO/common/n/img_korean_air.png) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/img_korean_air.png) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -1941,7 +1941,7 @@
 	top: 3px;
 	width: 36px;
 	height: 36px;
-	background: url(../../images/KO/common/n/icon_korean_air.png) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_korean_air.png) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -1962,7 +1962,7 @@
 	display: block;
 	width: 20px;
 	height: 20px;
-	background: url(../../images/KO/common/n/icon_check_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_check_1.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -2000,7 +2000,7 @@
 	display: block;
 	width: 20px;
 	height: 20px;
-	background: url(../../images/KO/common/n/icon_gift_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_gift_1.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -2156,7 +2156,7 @@
 	display: block;
 	width: 16px;
 	height: 16px;
-	background: url(../../images/KO/common/n/icon_eco_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_eco_1.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -2453,7 +2453,7 @@
 	display: block;
 	width: 18px;
 	height: 18px;
-	background: url(../../images/KO/common/n/icon_tooltip.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_tooltip.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -2506,7 +2506,7 @@
 	display: block;
 	width: 16px;
 	height: 16px;
-	background: url(../../images/KO/common/n/icon_check_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_check_1.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -2547,7 +2547,7 @@
 	display: block;
 	width: 16px;
 	height: 17px;
-	background: url(../../images/KO/common/n/icon_cross_arrow_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_cross_arrow_1.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -2633,10 +2633,10 @@
 	content: "";
 }
 .wrap-choice-pay .list-form__radio.type-hpoint .list-form__unit label input + .txt-label.type-card::before {
-	background-image: url(../../images/KO/common/n/icon_payment_card_1_off.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_payment_card_1_off.svg);
 }
 .wrap-choice-pay .list-form__radio.type-hpoint .list-form__unit label input + .txt-label.type-account::before {
-	background-image: url(../../images/KO/common/n/icon_payment_account_1_off.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_payment_account_1_off.svg);
 }
 .wrap-choice-pay .list-form__radio.type-hpoint .list-form__unit label input:checked + .txt-label {
 	padding-top: 32px;
@@ -2646,10 +2646,10 @@
 	top: 0;
 }
 .wrap-choice-pay .list-form__radio.type-hpoint .list-form__unit label input:checked + .txt-label.type-card::before {
-	background-image: url(../../images/KO/common/n/icon_payment_card_1_on.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_payment_card_1_on.svg);
 }
 .wrap-choice-pay .list-form__radio.type-hpoint .list-form__unit label input:checked + .txt-label.type-account::before {
-	background-image: url(../../images/KO/common/n/icon_payment_account_1_on.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_payment_account_1_on.svg);
 }
 .wrap-choice-pay .list-form__radio + .wrap-check, .wrap-choice-pay .list-form__radio + .list-info, .wrap-choice-pay .list-form__radio + .area-attention {
 	margin-top: 24px;
@@ -2781,7 +2781,7 @@
 	padding: 0 40px 0 12px;
 	border-radius: 4px;
 	border: 1px solid #dde0e5;
-	background: url(../../images/KO/common/n/icon_arrow_10.svg) no-repeat right center;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_arrow_10.svg) no-repeat right center;
 	background-size: 32px;
 	line-height: 32px;
 }
@@ -2864,7 +2864,7 @@
 	display: block;
 	width: 20px;
 	height: 20px;
-	background: url(../../images/KO/common/n/icon_alram.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_alram.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -3018,7 +3018,7 @@
 	        transform: translateY(-50%);
 	width: 16px;
 	height: 16px;
-	background: url(../../images/KO/common/n/icon_question.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_question.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -3243,7 +3243,7 @@
 	display: block;
 	width: 16px;
 	height: 16px;
-	background: url(../../images/KO/common/n/icon_tooltip.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_tooltip.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -3289,7 +3289,7 @@
 	display: block;
 	width: 12px;
 	height: 12px;
-	background: url(../../images/KO/common/n/icon_arrow_3.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_arrow_3.svg) no-repeat;
 	background-size: contain;
 	content: "";
 }
@@ -3332,7 +3332,7 @@
 	margin: 0;
 	border-radius: 2px;
 	border: 1px solid #5c6677;
-	background: url(../../images/KO/common/n/icon_check_1.svg) no-repeat;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_check_1.svg) no-repeat;
 	background-size: contain;
 }
 .wrap-check.chk input:is([type=checkbox], [type=radio]):checked + label {
@@ -3342,7 +3342,7 @@
 .wrap-check.chk input:is([type=checkbox], [type=radio]):checked + label::before {
 	opacity: 1;
 	background-color: #1b1e23;
-	background-image: url(../../images/KO/common/n/icon_check_4.svg);
+	background-image: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_check_4.svg);
 	border-color: #1b1e23;
 }
 .wrap-check.chk + .cash-receipts {
@@ -4047,7 +4047,7 @@
 	        transform: translateY(-50%);
 	width: 32px;
 	height: 32px;
-	background: url(../../images/KO/common/n/icon_arrow_10.svg) no-repeat right center;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_arrow_10.svg) no-repeat right center;
 	background-size: contain;
 	content: "";
 }
@@ -4090,7 +4090,7 @@
 	        transform: translateY(-50%);
 	width: 32px;
 	height: 32px;
-	background: url(../../images/KO/common/n/icon_arrow_10.svg) no-repeat right center;
+	background: url(https://cdn.hddfs.com/front/images/KO/common/n/icon_arrow_10.svg) no-repeat right center;
 	background-size: contain;
 	content: "";
 }
