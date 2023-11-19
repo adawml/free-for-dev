@@ -1,0 +1,946 @@
+window.addEventListener('load', () => {
+    // select box mobile
+    document.querySelector('.wrap-form__select select, .form_cont select, .wrap-select select, .temp_opt select') && Array.prototype.forEach.call(document.querySelectorAll('.wrap-form__select, .form_cont, .wrap-select, .temp_opt'), el => {
+        if (!el.closest('.type-order-payment.cart__content')) {
+            el.querySelector('select') && setSelectBox(el);
+        }
+    });
+    // input 삭제 버튼
+    document.querySelector('.wrap-form__input, .form_cont') && Array.prototype.forEach.call(document.querySelectorAll('.wrap-form__input, .form_cont'), el => {
+        if (!el.closest('.type-order-payment.cart__content')) {
+            // el.addEventListener('focusin', viewDel);
+            el.addEventListener('input', disableDel);
+            // el.addEventListener('focusout', removeDel);
+        }
+    });
+    // 기간 카렌다 기본 날짜 넣기 20230802 추가
+    document.querySelector('[data-role="calendarData"], [data-role="calendarDpat"]') && periodCalendar(document.querySelectorAll('[data-role="calendarData"], [data-role="calendarDpat"]'));
+    // 날짜 1개 선택용 카렌다 20230802 수정
+    document.querySelector('[data-role="calendar"]') && Array.prototype.forEach.call(document.querySelectorAll('[data-role="calendar"]'), inp => {
+        const type = inp.dataset.calendarType;
+        inp.addEventListener('click', function(e) {
+            setCalendar({target: inp, type, multi: false});
+        });
+    });
+    // 등록가이드 accordion 
+    document.querySelector('[data-role*="accordion__"]') && Array.prototype.forEach.call(document.querySelectorAll('[data-role*="accordion__"]'), el => {
+        viewSlideCont({base: el.closest('.wrap-tit'), btn: el, target: el.closest('.wrap-tit').querySelector('.guide-passport')});
+    });
+    // 레이어 탭 리스트, 팝업 열기 등 mutation observer
+    checkLayer();
+    // 모바일 마이현대 swiper
+    document.querySelector('.my-situation-swiper') && setSwiper({target: document.querySelector('.my-situation-swiper'), gap: 30, pagination: '.swiper-pagination', navigation: true});
+    document.querySelector('.my-suggestion-swiper') && setSwiper({target: document.querySelector('.my-suggestion-swiper'), viewNum: 'auto', gap: 12});
+    document.querySelector('.wave-open.electronic-passport-wrap') && viewSlideCont({base: '.wave-open.electronic-passport-wrap', btn: '.electronic-passport', target: '.electronic-passport-content'});
+    // accordion
+    document.querySelector('[role=region]') && setAccordion();
+    //주문결제 주문상품 더 보기 20230725 추가
+    document.querySelector('[data-role=fold__wrap-order-list]') && foldOrderProduct(document.querySelector('[data-role=fold__wrap-order-list]'));
+    // 주문결제 hpoint swiper
+    // document.querySelector('.swiper-h-point-card') && setSwiper({target: document.querySelector('.swiper-h-point-card'), gap: 30, pagination: '.swiper-pagination'});
+    // 주문결제 hpoint swiper
+    // document.querySelector('.swiper-h-point-account') && setSwiper({target: document.querySelector('.swiper-h-point-account'), gap: 30, pagination: '.swiper-pagination'});
+    // 모달창 닫기
+    document.querySelector('.layer-dim') && Array.prototype.forEach.call(document.querySelectorAll('.layer-dim'), el => {
+        closeModalSwipe({base: el, cls: '.box-bottom-float', checkBody: true});
+    });
+    // 우측 결제 금액 스크롤 이벤트
+    document.querySelector('.cart__right') && scrollFloatRight('.cart__right');
+    // 모바일 최종 결제금액 보기 아코디언
+    document.querySelector('.payment_final_detail .folding .detail_tit.type-btn') && paymentFoldPos('.payment_final_detail .folding');
+    setIntersectionOpserve({target: '.swiper-h-point-card'});
+    setIntersectionOpserve({target: '.swiper-h-point-account'});
+});
+// 레이어 탭 리스트, 팝업 열기 등 mutation observer
+function checkLayer() {
+    const observer = new MutationObserver(mutations => {
+        mutations.forEach( mutation => {
+            if (mutation.type === 'childList') {
+                mutation.addedNodes.forEach( el => {
+                    if (!el.querySelector) {
+                        return;
+                    }
+                    // 탭 적용
+                    if (el.querySelector('[role=tablist]')) {
+                        const _cls = `.${el.querySelector('.box-float-layer').className.split(' ').join('.')}`;
+                        setTab(_cls);
+                    }
+                    // 팝업 열기
+                    if (el.querySelector('[data-role*="open__"]')) {
+                        openEl(el.querySelector('[data-role*="open__"]'));
+                    }
+                    // 기간 카렌다 기본 날짜 넣기 20230802 추가
+                    if (el.querySelector('[data-role="calendarData"], [data-role="calendarDpat"]')) {
+                        periodCalendar(el.querySelectorAll('[data-role="calendarData"], [data-role="calendarDpat"]'));
+                    }
+                    // calendaer 20230802 수정
+                    if (el.querySelector('.choice-date-single')) {
+                        Array.prototype.forEach.call(el.querySelectorAll('[data-role="calendar"]'), inp => {
+                            const type = inp.dataset.calendarType;
+                            inp.addEventListener('click', function(e) {
+                                setCalendar({target: inp, type, multi: false});
+                            });
+                        });
+                    }
+                    // 1, 3, 6개월 기간 선택
+                    if (el.querySelector('[data-role="period-calendar"]')) {
+                        Array.prototype.forEach.call(el.querySelectorAll('.list-order__head.type-order-history [data-role="period-calendar"]'), el => {
+                            changePeriodCalendar(el.closest('.list-order__head.type-order-history'));
+                        });
+                    }
+                    // tooltip
+                    if (el.querySelector('.btn-tooltip')) {
+                        Array.prototype.forEach.call(el.querySelectorAll('.btn-tooltip'), el => {
+                            viewTooltip(el);
+                        });
+                    }
+                    // accordion
+                    if (el.querySelector('[aria-expanded]')) {
+                        const cls = el.querySelector('[role=region]').className.split(' ').join('.');
+                        setAccordion(`.${cls}`);
+                    }
+                    // input 삭제 버튼
+                    if (el.querySelector('.wrap-form__input, .form_cont') && !el.closest('body').querySelector('.type-order-payment.cart__content')){
+                        Array.prototype.forEach.call(document.querySelectorAll('.wrap-form__input, .form_cont'), el => {
+                            // el.addEventListener('focusin', viewDel);
+                            el.addEventListener('input', disableDel);
+                            // el.addEventListener('focusout', removeDel);
+                        });
+                    }
+                    // select box 
+                    if (el.querySelector('.wrap-form__select select, .form_cont select, .wrap-select select, .temp_opt select')) {
+                        Array.prototype.forEach.call(document.querySelectorAll('.wrap-form__select, .form_cont, .wrap-select, .temp_opt'), el => {
+                            if (!el.closest('.type-order-payment.cart__content')) {
+                                el.querySelector('select') && setSelectBox(el);
+                            }
+                        });
+                    }
+                    // modal close
+                    // 모달창 닫기
+                    if (el.classList.contains('layer-dim')) {
+                        closeModalSwipe({base: el, cls: '.box-bottom-float', checkBody: true});
+                    }
+                });
+            }
+        });
+    });
+      
+      // observe everything except attributes
+      observer.observe(document.body, {
+        childList: true, // observe direct children
+        subtree: true, // and lower descendants too
+        characterDataOldValue: true // pass old data to callback
+      });
+    
+}
+// 날짜 변환
+function changeValDate(val) {
+    const _join = val.split('-').map(num => parseInt(num)).join('/');
+    return `${_join} 00:00:00`;
+}
+// 날짜 선택용 카렌다 만들기 //20230803 수정
+function setCalendar({target, type, multi}) {
+    if (document.querySelector('.wrap-calendar')) {
+        return;
+    }
+    document.querySelector('.area-calendar') && document.querySelector('.area-calendar').remove();
+    let _calendar = '';
+    const _lang = document.querySelector('html').getAttribute('lang');
+    const _word = _lang === 'ko' ? 
+        {sun: '일',mon: '월',tue: '화',wed: '수',thu: '목',fri: '금',sat: '토', year: '<span class="txt-year"></span>년 <span class="txt-month"></span>월', choiceTxt: '날짜를 선택해 주세요', useTxt: '적용', okTxt: '확인'} :
+        _lang === 'en' ? 
+        {sun: 'Sun',mon: 'Mon',tue: 'Tue',wed: 'Wed',thu: 'Thu',fri: 'Fri',sat: 'Sat', year: '<span class="txt-month"></span> <span class="txt-year"></span>', choiceTxt: 'Please select a date.', useTxt: 'Use', okTxt: 'OK'} :
+        {sun: '日',mon: '一',tue: '二',wed: '三',thu: '四',fri: '五',sat: '六', year: '<span class="txt-year"></span>年 <span class="txt-month"></span>月', choiceTxt: '请选择日期', useTxt: '使用', okTxt: '确认'}
+    const _html = `
+    ${_mobile ? '<div class="wrap-calendar__inner"><div class="btn-close-layer type-bar"><button type="button" class="conditiontton">레이어 닫기</button></div>' : ''}
+    ${_mobile && target.title ? `<h3 class="tit-calendar">${target.title}</h3>` : ''}
+    <div class="area-calendar">
+        <div class="area-year-month">
+            <p class="btn-prev"><button type="button">이전 달</button></p>
+            <p class="wrap-year-month">${_word.year}</p>
+            <p class="btn-next"><button type="button">다음 달</button></p>
+        </div>
+        <div class="wrap-calendar-day">
+            <div class="wrap-week">
+                <p class="day-sunday">${_word.sun}</p>
+                <p class="day-week">${_word.mon}</p>
+                <p class="day-week">${_word.thu}</p>
+                <p class="day-week">${_word.wed}</p>
+                <p class="day-week">${_word.thu}</p>
+                <p class="day-week">${_word.fri}</p>
+                <p class="day-saturday">${_word.sat}</p>
+            </div>
+            <div class="wrap-day">
+            </div>
+        </div>
+    </div>
+    ${_mobile ? `<button type="button" class="btn-square type-full type-dark-1 size-1">${_word.useTxt}</button></div>` : ''}
+    `;
+    const _alertTxt = `<div class="box-confirm-layer m_popup_renew">
+            <div class="confirm_group">
+                <div class="confirm_tit">
+                    <p>${_word.choiceTxt}</p>
+                </div>
+            </div>
+            <div class="float_btn">
+                <ul class="list-btn">
+                    <li><button type="button" class="btn_confirm">${_word.ok}</button></li>
+                </ul>
+            </div>
+        </div>`;
+
+    const _period = target.dataset.period;
+    const _last = target.closest('[data-role="period-calendar"]') && target.closest('[data-role="period-calendar"]').querySelector('[data-today="0"]');
+    const _base = target.parentNode;
+    const _value = target.parentNode.querySelector('input').value;
+    const rToday = new Date();
+    rToday.setHours(0, 0, 0, 0);
+    let today = new Date();
+    today = type === 'birthday' ? new Date(today.getFullYear() - 19,0,1) : !!_value && _period !== 'end' && new Date(_value) <= today ? new Date(changeValDate(_value)) : today;
+    const _selectedDay = !multi ?  {start: ''} : {start: '', end: ''};
+    const scheduledDay = _value && new Date(changeValDate(_value)) <= today && _period === 'start' ? new Date(changeValDate(_last.value)) : today;
+    const valDay = _value ? new Date(changeValDate(_value)) : today;
+    let curDay = _value ? new Date(changeValDate(_value)) : today; // value 있으면 value 날짜로 아니면 현재 날짜
+
+    // 카렌다 만들기
+    const makeCalendar = () => {
+        // _calendar && _calendar.querySelector('.area-calendar') && _calendar.querySelector('.area-calendar').remove();
+        const firstDay = new Date(curDay.getFullYear(), curDay.getMonth(), 1);
+        const lastDay = new Date(curDay.getFullYear(), curDay.getMonth() + 1, 0);
+        const top = target.getBoundingClientRect().top + target.clientHeight;
+        const left = _mobile ? '' : target.getBoundingClientRect().left;
+        
+        _calendar = _calendar ? _calendar : document.createElement('div');
+        _calendar.innerHTML = _html;
+        _calendar.classList.add('wrap-calendar');
+        _mobile && _calendar.setAttribute('data-dim', true);
+        curDay.setHours(0, 0, 0, 0);
+        _calendar.querySelector('.wrap-day').innerHTML = '';
+        _calendar.querySelector('.wrap-year-month .txt-year').innerHTML = `<button type-"button" class="btn-choice type-year">${curDay.getFullYear()}</button>`;
+        _calendar.querySelector('.wrap-year-month .txt-month').innerHTML = `<button type-"button" class="btn-choice type-month">${curDay.getMonth() + 1}</button>`;
+        !document.querySelector('.wrap-calendar') && document.body.append(_calendar);
+        if (_mobile) {
+            setTimeout(() => {
+                !_calendar.classList.contains('is-active') && _calendar.classList.add('is-active');
+            }, 10);
+        } else {
+            _calendar.querySelector('.area-calendar').style.top = `${top}px`;
+            _calendar.querySelector('.area-calendar').style.left = `${left - 120}px`;
+        }
+        for (let day = firstDay; day <= lastDay; day.setDate(day.getDate() + 1)) {
+            const _date = day.getDate();
+            const _day = document.createElement('p');
+            const _weekDay = day.getDay();
+
+            // 첫번째 아이템 위치
+            if (_date === 1) {
+                _day.style.gridColumn = `${_weekDay + 1} / ${_weekDay + 2}`;
+            }
+            // 주말 체크
+            if (_weekDay === 6) {
+                _day.className = 'day-saturday';
+            } else if (_weekDay === 0) {
+                _day.className = 'day-sunday';
+            }
+            // 지난 날짜
+            // if (day < scheduledDay && !type && type !== 'birthday' && !_value) {
+            if (day < rToday && !type) {
+                _day.classList.add('day-pass');
+            }
+            // 오늘 체크
+            // if (day.getFullYear() === today.getFullYear() && day.getMonth() === today.getMonth() && day.getDate() === today.getDate()) {
+            if (day.getFullYear() === rToday.getFullYear() && day.getMonth() === rToday.getMonth() && day.getDate() === rToday.getDate()) {
+                _day.classList.add('day-today');
+            }
+            // 선택된 날짜 체크
+            if (_value && day.getFullYear() === valDay.getFullYear() && day.getMonth() === valDay.getMonth() && day.getDate() === valDay.getDate()) {
+                _day.classList.add('is-selected');
+            }
+
+            // 지난 날짜는 텍스트만, 오늘 이후 날짜 버튼 추가
+            // _day.innerHTML = (day < scheduledDay && !type ? _date : `<button type="button" data-date="${day}">${_date}</button>`);
+            _day.innerHTML = (day < rToday && !type ? _date : `<button type="button" data-date="${day}">${_date}</button>`);
+            // 버튼 클릭 액션
+            _day.querySelector('button') && _day.querySelector('button').addEventListener('click', e => {
+                selectDay(e); // 날짜 선택
+                type === 'history' && resetChoiceMonth(target.dataset.period); // 개월선택 라디오 초기화
+            })
+            _calendar.querySelector('.wrap-day').append(_day);
+        }
+        // 바탕 클릭 창 닫기
+        _calendar.addEventListener('click', e => {
+            if (e.target.nodeName === 'BUTTON') {
+                return;
+            }
+            !e.target.classList.contains('choice-btn') && !e.target.closest(`.area-calendar`) && closeCalendar();
+        })
+        _calendar.querySelector('.btn-close-layer button') && _calendar.querySelector('.btn-close-layer button').addEventListener('click', () => {
+            closeCalendar();
+        });
+        !_mobile && document.addEventListener('scroll', () => {
+            if (_calendar) {
+                _calendar.querySelector('.area-calendar').style.top = `${target.getBoundingClientRect().top + target.clientHeight}px`;
+            }
+        });
+        _mobile && moChoiceMonth();
+        choiceMonth(); // 달 선택
+        choiceJump() // 년, 월 선택
+    }
+    // 년, 월 선택
+    const choiceJump = () => {
+        Array.prototype.forEach.call(_calendar.querySelectorAll('.wrap-year-month .btn-choice'), btn => {
+            btn.addEventListener('click', (e) => {
+                if (btn.classList.contains('is-choice')) {
+                    return;
+                }
+                const _isYear = e.target.classList.contains('type-year') ? true : false;
+                const _removeDim = document.createElement('div');
+                const _wrapCont = document.createElement('div');
+                const _wrapList = document.createElement('ul');
+                _removeDim.className = 'remove-dim choice-btn';
+                _wrapCont.className = 'wrap-list-dropdown is-active';
+                btn.classList.contains('type-month') && _wrapCont.classList.add('type-month');
+                btn.classList.add('is-choice');
+                _wrapList.className = 'list-dropdown';
+                const _yearStart = type === 'history' ? today.getFullYear() - 10 : type === 'birthday' ? today.getFullYear() - 50 : today.getFullYear();
+                const _yearEnd = type === 'history' ? today.getFullYear() + 10 : type === 'birthday' ? today.getFullYear() + 50 : today.getFullYear() + 10;
+                const _start = _isYear ? _yearStart : 1;
+                const _end = _isYear ? _yearEnd : 13;
+                const _unitHgt = _mobile ? 40 : 30;
+                // 년, 월선택 값 넣기
+                for (let i = _start; i < _end; i++) {
+                    const _li = document.createElement('li');
+                    const _btn = document.createElement('button');
+                    _btn.setAttribute('type', 'button');
+                    _btn.className = 'choice-btn';
+                    _btn.dataset.year = i;
+                    _btn.innerHTML = i;
+                    if (_isYear) {
+                        i === today.getFullYear() && _li.classList.add('is-selected');
+                    } else {
+                        i === today.getMonth() + 1 && _li.classList.add('is-selected');
+                    }
+                    _li.append(_btn);
+                    _wrapList.append(_li);
+                    _btn.addEventListener('click', () => {
+                        curDay = _isYear ? new Date(_btn.dataset.year, curDay.getMonth(), curDay.getDate()) : new Date(curDay.getFullYear(), _btn.dataset.year - 1, curDay.getDate());
+                        makeCalendar();
+                        _wrapCont.remove();
+                        _removeDim.remove();
+                    })
+                }
+                // 년, 달 선택 레이어 특정 위치로 이동
+                setTimeout(() => {
+                    const _num = _isYear ? _wrapList.querySelector('.is-selected button').dataset.year - _yearStart : _wrapList.querySelector('.is-selected button').dataset.month - _yearStart;
+                    _wrapList.scrollTop = _num * _unitHgt;
+                }, 10);
+                _wrapCont.append(_wrapList);
+                _calendar.querySelector('.wrap-year-month').append(_removeDim);
+                _calendar.querySelector('.wrap-year-month').append(_wrapCont);
+                _removeDim.addEventListener('click', () => {
+                    _wrapCont.remove();
+                    _removeDim.remove();
+                    btn.classList.contains('is-choice') && btn.classList.remove('is-choice');
+                })
+            })
+        })
+    }
+    // 날짜 선택
+    const selectDay = (e) => {
+        const _day = new Date(e.target.dataset.date);
+        const _dayTrans = `${_day.getFullYear()}-${_day.getMonth() + 1 < 10 ? `0${_day.getMonth() + 1}` : `${_day.getMonth() + 1}`}-${_day.getDate() < 10 ? `0${_day.getDate()}` : `${_day.getDate()}`}`;
+
+        if (!multi) {
+            _selectedDay.start = _dayTrans;
+            insertDate({target: e.target, end: 'end'});
+            // _period === 'end' && checkPeriod(target);
+            return;
+        }
+        if (_selectedDay.start !== '' && _selectedDay.end !== '') {
+            _selectedDay.start = _dayTrans;
+            _selectedDay.end = '';
+            insertDate({target: e.target});
+        } else if (_selectedDay.start > _dayTrans || _selectedDay.start === '') {
+            _selectedDay.start = _dayTrans;
+            insertDate({target: e.target});
+        } else if (_selectedDay.end === '') {
+            _selectedDay.end = _dayTrans;
+            insertDate({target: e.target, end: 'end'});
+        }
+    }
+    // 날짜 입력
+    const insertDate = ({target, end, exc}) => {
+        // const _inp = type === 'single' ? [_base.querySelector('input')] : [_base.querySelector('.start-calendar'), _base.querySelector('.end-calendar')]
+        const _inp = [_base.querySelector('input')];
+        _calendar.querySelector('.is-selected') && _calendar.querySelector('.is-selected').classList.remove('is-selected');
+        target && target.parentNode.classList.add('is-selected');
+        // end && target.parentNode.classList.add('is-selected-end'); // 멀티일 경우 두번째 날짜
+        if (_mobile && !exc) {
+            return;
+        }
+        end && Object.values(_selectedDay).forEach((el, idx) => {
+            //mo
+            if (_inp[idx].dataset.type === 'pspt') {
+                getPstpExpiDt(el);
+            }
+            _inp[idx].value = el;
+            _inp[idx].dispatchEvent(new Event('change'));
+        });
+        end && closeCalendar();
+    }
+    // 달 선택
+    const choiceMonth = () => {
+        _calendar.querySelector('.area-year-month .btn-prev button').addEventListener('click', () => {
+            curDay = new Date(curDay.getFullYear(), curDay.getMonth() - 1, 1);
+            makeCalendar();
+        });
+        _calendar.querySelector('.area-year-month .btn-next button').addEventListener('click', () => {
+            curDay = new Date(curDay.getFullYear(), curDay.getMonth() + 1, 1);
+            makeCalendar();
+        });
+    }
+    // 모바일 alert
+    const makeAlert = () => {
+        const _alert = document.createElement('div');
+        _alert.className = 'alert-modal';
+        _alert.innerHTML = _alertTxt;
+        document.body.append(_alert);
+        _alert.querySelector('button').addEventListener('click', () => {
+            _alert.remove();
+        })
+    }
+    // 모바일 달력 날짜 선택 적용
+    const moChoiceMonth = () => {
+        _calendar.querySelector('.btn-square').addEventListener('click', () => {
+            if (!_selectedDay.start) {
+                makeAlert();
+                return;
+            } else {
+                insertDate({end: true, exc: true});
+                closeCalendar();
+            }
+        })
+    }
+    // 달력 닫기
+    const closeCalendar = () => {
+        _calendar && _calendar.remove();
+        _calendar = null;
+    }
+    // 개월선택 라디오 초기화
+    const resetChoiceMonth = (type) => {
+        const _wrap = _base.closest('.order-history__group');
+        const _radios = _wrap.querySelector('.wrap-btn');
+        _radios.querySelector('input:checked').checked = false;
+        _radios.querySelectorAll('input')[1].checked = true;
+        // evtTrigger(_radios.querySelector('input'));
+    }
+    makeCalendar(); // 카렌더 만들기
+}
+// 기간 달력
+function periodCalendar(calendars) {
+    Array.prototype.forEach.call(calendars, (inp, idx) => {
+        if (inp.dataset.type === 'history') {
+            const _type = inp.dataset.role;
+            const _num = _type === 'calendarData' ? -3 : 3; // default 달력 개월(1,3,5)
+            const today = new Date();
+            const firstDay = _type === 'calendarData' ? new Date(today.getFullYear(), today.getMonth() + _num, today.getDate()) : today;
+            const secondDay = _type === 'calendarData' ? today : new Date(today.getFullYear(), today.getMonth() + _num, today.getDate());
+            idx % 2 === 0 && insertCurDate({target: inp, day: firstDay});
+            idx % 2 !== 0 && insertCurDate({target: inp, day: secondDay});
+        }
+    });
+}
+// 달력 관련 날짜 넣기
+function insertCurDate({target, day, num}) {
+    const _year = day.getFullYear();
+    const _month = day.getMonth() + 1 < 10 ? `0${day.getMonth() + 1}` : day.getMonth() + 1;
+    const _day = day.getDate() < 10 ? `0${day.getDate()}` : day.getDate();
+    const _inpuTxt = `${_year}-${_month}-${_day}`;
+    target.value = _inpuTxt;
+}
+// 1, 3, 6개월 기간 선택 20230802 수정
+function changePeriodCalendar(el) {
+    if (!el.querySelector('input[name*="onthRadio"]')) {
+        return;
+    }
+    const _inputs = el.querySelectorAll('input[name*="onthRadio"]');
+    const _sequence = el.querySelectorAll('input[name*="tdCdRadio"]');
+    const _calendars = el.querySelectorAll('[data-role="calendarData"], [data-role="calendarDpat"]');
+    Array.prototype.forEach.call(_sequence, inp => {
+        inp.addEventListener('change', () => {
+            const _type = inp.value === 'order' ? 'calendarData' : 'calendarDpat';
+            const _num = _type === 'calendarData' ? -1 : 1;
+            const today = new Date();
+            const _checked = el.querySelector('input[name*="onthRadio"]:checked').value;
+            insetCalendarData(_type, today, (_num * _checked));
+        })
+    });
+    Array.prototype.forEach.call(_inputs, inp => {
+        inp.addEventListener('click', e => {
+            const _type = _calendars[0].dataset.role;
+            const _num = _type === 'calendarData' ? Number((e.target.value) * -1) : Number(e.target.value);
+            const today = _type === 'calendarData' ? new Date(changeValDate(_calendars[1].value)) : new Date(changeValDate(_calendars[0].value));
+            insetCalendarData(_type, today, _num);
+        })
+    });
+    const insetCalendarData = (type, today, num) => {
+        Array.prototype.forEach.call(_calendars, (calendar, idx) => {
+            const firstDay = type === 'calendarData' ? new Date(today.getFullYear(), today.getMonth() + num, today.getDate()) : today;
+            const secondDay = type === 'calendarData' ? today : new Date(today.getFullYear(), today.getMonth() + num, today.getDate());
+            idx % 2 === 0 && insertCurDate({target: calendar, day: firstDay});
+            idx % 2 !== 0 && insertCurDate({target: calendar, day: secondDay});
+        });
+    }
+}
+// input del button 20230802 수정
+function viewDel(e) {
+    if (e.target.getAttribute('type') === 'checkbox' || e.target.getAttribute('type') === 'radio' || e.target.getAttribute('type') === 'button' || e.target.nodeName === 'SELECT' || e.target.nodeName === 'A') {
+        return;
+    }
+    const inp = e.target;
+    const _base = inp.closest('.wrap-form__input, .form_cont');
+    const checkIsBtn = () => {
+        const _btns = _base.querySelectorAll('button, p, .timer, .remain-date'); //20230802
+        const _wids = Array.prototype.reduce.call(_btns, (acc, el) => {
+            return acc + (el.classList.contains('txt-error') ? 0 : el.clientWidth === 0 ? 0 : parseInt(el.clientWidth + 8));
+        }, 0);
+        return _wids;
+    }
+    const makeDel = () => {
+        const _right = checkIsBtn();
+        const btn = document.createElement('button');
+        _base.classList.add('is-change');
+        btn.className = 'btn-circle type-del';
+        btn.innerHTML = '삭제';
+        _base.append(btn);
+        btn.style.right = `${_right === 0 ? 12 : _right}px`;
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            _base.classList.contains('is-change') && _base.classList.remove('is-change');
+            inp.value = '';
+            _base.querySelector('.btn-square') && _base.querySelector('.btn-square').dataset.role !== 'allSearch' && _base.querySelector('.btn-square').setAttribute('disabled', '');
+            btn.remove();
+        })
+    }
+    !_base.classList.contains('is-change') && makeDel();
+    if (inp.value !== '') {
+        _base.querySelector('.btn-square') && _base.querySelector('.btn-square').dataset.role !== 'allSearch' && _base.querySelector('.btn-square').removeAttribute('disabled');
+    } else {
+        _base.querySelector('.btn-square') && _base.querySelector('.btn-square').dataset.role !== 'allSearch' && _base.querySelector('.btn-square').setAttribute('disabled', '');
+    }
+}
+function removeDel(e) {
+    setTimeout(() => {
+        if (e.target.getAttribute('type') === 'checkbox' || e.target.getAttribute('type') === 'radio' || e.target.getAttribute('type') === 'button' || e.target.nodeName === 'SELECT' || e.target.nodeName === 'A') {
+            return;
+        }
+        const inp = e.target;
+        const _base = inp.closest('.wrap-form__input, .form_cont');
+        const btn = _base ? _base.querySelector('.type-del') : '';
+        _base ? _base.classList.contains('is-change') && _base.classList.remove('is-change') : '';
+        btn ? btn.remove() : '';
+    }, 200);
+}
+function disableDel(e) {
+    if (e.target.getAttribute('type') === 'checkbox' || e.target.getAttribute('type') === 'radio' || e.target.getAttribute('type') === 'button' || e.target.nodeName === 'SELECT' || e.target.nodeName === 'A') {
+        return;
+    }
+    const inp = e.target;
+    const _base = inp.closest('.wrap-form__input, .form_cont');
+    if (inp.value !== '') {
+        _base.querySelector('.btn-square') && _base.querySelector('.btn-square').dataset.role !== 'allSearch' && _base.querySelector('.btn-square').removeAttribute('disabled');
+    } else {
+        _base.querySelector('.btn-square') && _base.querySelector('.btn-square').dataset.role !== 'allSearch' && _base.querySelector('.btn-square').setAttribute('disabled', '');
+    }
+}
+// select value idx
+function searchValOptIdx(target, val) {
+    const _options = target.querySelectorAll('option');
+    const _idx = Array.prototype.findIndex.call(_options, opt => {
+        return opt.value === val;
+    })
+    if (_idx === -1) {
+        return;
+    }
+    return _idx;
+}
+// select data insert
+function setAttrData(target, data) {
+    const _idx = searchValOptIdx(target, data);
+    target.querySelector('option[selected]') && target.querySelector('option[selected]').removeAttribute('selected');
+    target.querySelectorAll('option')[_idx] && target.querySelectorAll('option')[_idx].setAttribute('selected','');
+}
+// custom select box
+function setSelectBox(el, pop) {
+    // return;
+    if (!el.querySelector('select')) {
+        return;
+    }
+    const init = {
+        posWrap: '',
+        addWrap: '',
+        listWrap: '',
+        addSelect: '',
+        addBtn: '',
+        fakeBtn: '',
+        selectBox: '',
+        options: '',
+        max: {num: 0, txt: ''},
+        isFirst: false,
+        cls: `dropdown_${parseInt(Math.random() * 1000000)}`
+    }
+    const searchValOpt = (val) => {
+        const _idx = Array.prototype.findIndex.call(init.options, opt => {
+            return opt.value === val;
+        })
+        if (_idx === -1) {
+            return;
+        }
+        return init.options[_idx].text;
+    }
+    const makeSelect = () => {
+        init.posWrap = document.createElement('div');
+        init.addWrap = el.querySelector('.wrap-add-dropdown') ? el.querySelector('.wrap-add-dropdown') : document.createElement('div');
+        init.listWrap = el.querySelector('.wrap-list-dropdown') ? el.querySelector('.wrap-list-dropdown') : document.createElement('div');
+        init.addSelect = el.querySelector('.list-dropdown') ? el.querySelector('.list-dropdown') : document.createElement('ul');
+        init.addBtn = el.querySelector('.btn-dropdown') ? el.querySelector('.btn-dropdown') : document.createElement('button');
+        init.fakeBtn = el.querySelector('.fake-dropdown') ? el.querySelector('.fake-dropdown') : document.createElement('span');
+        init.selectBox = el.querySelector('select');
+        init.options = init.selectBox.querySelectorAll('option');
+
+        if (el.querySelector('.wrap-add-dropdown')) {
+            return;
+        }
+        init.posWrap.className = pop ? 'wrap-pos-add-dropdown type-modal' : 'wrap-pos-add-dropdown';
+        init.posWrap.classList.add(init.cls);
+        init.addWrap.className = 'wrap-add-dropdown';
+        init.listWrap.className = 'wrap-list-dropdown';
+        init.addSelect.className = 'list-dropdown';
+        init.addSelect.setAttribute('data-parentid', init.selectBox.id);
+        init.addBtn.className = 'btn-dropdown'
+        init.fakeBtn.className = 'fake-dropdown'
+        init.addBtn.setAttribute('type', 'button');
+        init.selectBox.disabled && init.addWrap.setAttribute('data-disabled', 'disabled');
+        init.options.length === 0 && init.addWrap.setAttribute('data-disabled', 'disabled');
+        init.addBtn.innerHTML = init.selectBox.value ? searchValOpt(init.selectBox.value) : init.options[0] ? init.options[0].text : '';
+        if (init.selectBox.value || init.options[0] && init.options[0].value) {
+            init.addBtn.classList.add('active');
+        }
+        init.addSelect.innerHTML = Array.prototype.reduce.call(init.options, (acc, option) => {
+            if (option.text.length > init.max.num) {
+                init.max.num = option.text.length;
+                init.max.txt = option.text;
+            }
+            return acc += `<li ${init.selectBox.value === option.value ? 'class="is-selected"' : ''}><button type="button" data-value=${option.value} ${option.disabled ? 'data-disabled="disabled"' : ''}>${option.text}</button></li>`
+        },'');
+
+        init.fakeBtn.innerHTML = init.max.txt;
+        init.addWrap.appendChild(init.fakeBtn);
+        init.addWrap.appendChild(init.addBtn);
+        init.listWrap.appendChild(init.addSelect);
+        init.selectBox.insertAdjacentElement('afterend', init.addWrap);
+        init.posWrap.append(init.listWrap);
+        document.body.append(init.posWrap);
+        el.classList.add('is-setted');
+        selectData();
+        init.addBtn.addEventListener('click', (e) => {
+            if (!init.addWrap.classList.contains('active')) {
+                const _cls = getPos({btn: init.addBtn, inner: init.listWrap, include: '.od_calc_wrap'});
+                init.posWrap.classList.add(_cls);
+                makeSelectPos(init.addWrap, init.posWrap, _cls);
+                elSlideDown({base: init.addWrap, btn: init.addBtn, target: init.listWrap, cls: 'active', execute: true, is: 'ing'});
+                !init.isFirst && setCloseSelect();
+            } else {
+                elSlideDown({base: init.addWrap, btn: init.addBtn, target: init.listWrap, cls: 'active', execute: false, is: 'ing'});
+                setTimeout(() => {
+                    init.posWrap.removeAttribute('style');
+                }, 300);
+            }
+            window.addEventListener('scroll', () => {
+                if (!init.addWrap.classList.contains('active')) {
+                    return;
+                }
+                makeSelectPos(init.addWrap, init.posWrap);
+            })
+        });
+    }
+    // position 
+    const makeSelectPos = (btn, target, type) => {
+        const _type = type ? type : target.className;
+        const _wid = btn.clientWidth;
+        const _hgt = _type.indexOf('direct-down') !== -1 ? btn.clientHeight : 0;
+        const _addHgt = _type.indexOf('direct-down') !== -1 ? 8 : -8;
+        const _top = btn.getBoundingClientRect().top + _hgt + _addHgt;
+        const _left = btn.getBoundingClientRect().left;
+        target.style.width = `${_wid}px`;
+        target.style.top = `${_top}px`;
+        target.style.left = `${_left}px`;
+    }
+    // select body click close
+    const setCloseSelect = () => {
+        init.isFirst = true;
+        document.body.addEventListener('click', () => {
+            if (!init.addWrap.classList.contains('active')) {
+                return;
+            }
+            elSlideDown({base: init.addWrap, btn: init.addBtn, target: init.listWrap, cls: 'active', execute: false, is: 'ing'});
+            setTimeout(() => {
+                init.posWrap.removeAttribute('style');
+                init.posWrap.classList.contains('direct-up') && init.posWrap.classList.remove('direct-up');
+                init.posWrap.classList.contains('direct-down') && init.posWrap.classList.remove('direct-down');
+            }, 300);
+        })
+    }
+    // 드롭다운 메뉴 선택
+    const selectData = () => {
+        const datas = init.addSelect.querySelectorAll('button');
+        Array.prototype.forEach.call(datas, (data, idx) => {
+            data.addEventListener('click', e => {
+                init.addSelect.querySelector('.is-selected') && init.addSelect.querySelector('.is-selected').classList.remove('is-selected');
+                data.parentNode.classList.add('is-selected');
+                init.addBtn.innerHTML = data.innerHTML;
+                if (!!data.dataset.value) {
+                    init.addBtn.classList.add('active');
+                } else {
+                    init.addBtn.classList.remove('active');
+                }
+                init.selectBox.querySelector(`option[selected]`) && init.selectBox.querySelector(`option[selected]`).removeAttribute('selected');
+                init.options[idx].setAttribute('selected','');
+                init.options[idx].selected = true;
+                init.selectBox.value = init.options[idx].value;
+                init.selectBox.dispatchEvent(new Event('change'));
+                // selectClickEvent(datas);
+            })
+        })
+    }
+    // 열리는 방향
+    const getPos = ({btn, inner, include}) => {
+        if (!btn || !inner) {
+            return;
+        }
+        inner.style.cssText = "display: block; opacity: 0; transition: all 0s";
+        const _innerHgt = inner.clientHeight;
+        inner.removeAttribute('style');
+        const _include = include && document.querySelector(include) ? document.querySelector(include).clientHeight : 0;
+        const _btnInfo = btn.getBoundingClientRect();
+        const _winHgt = document.documentElement.clientHeight || document.body.clientHeight || window.innerHeight;
+        const _direct = _winHgt - _include - _btnInfo.top < _innerHgt ? 'direct-up' : 'direct-down';
+        // const _direct = _winHgt - _include - _btnInfo.top < _innerHgt ? false : true;
+        return _direct;
+    };
+    // observe
+    const optionObserve = () => {
+        let observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                // console.log(mutation.type);
+                // if (mutation.type === 'childList' || mutation.type === 'attributes') {
+                el.querySelector('.wrap-add-dropdown') && el.querySelector('.wrap-add-dropdown').remove();
+                init.posWrap.innerHTML = '';
+                document.querySelector(`.wrap-pos-add-dropdown.${init.cls}`) && document.querySelector(`.wrap-pos-add-dropdown.${init.cls}`).remove()
+                init.addWrap = '';
+                makeSelect();
+                // mutation.addedNodes.forEach(unit => {
+                // });
+                // }
+            })
+        })
+        const config = {
+            childList: true,
+            subtree: true,
+            attributes: true
+        }
+        observer.observe(init.selectBox, config);
+    }
+    makeSelect();
+    optionObserve();
+}
+//주문결제 주문상품 더 보기 20230725 추가
+function foldOrderProduct(btn) {
+    const _base = btn.parentNode.querySelector('.wrap-order-list');
+    const _baseHgt = _base.querySelector('.order_list > li').clientHeight + 5;
+    const _txtClose = btn.dataset.closeTxt ? btn.dataset.closeTxt : '닫기';
+    const _txtOpen = btn.dataset.openTxt ? btn.dataset.openTxt : '더보기';
+    let _maxHgt = 0;
+    _base.style.maxHeight = `${_baseHgt}px`;
+    if (_base.querySelectorAll('.order_list > li').length === 1) {
+        btn.style.display = 'none';
+    }
+
+    btn.addEventListener('click', (e) => {
+        if (_base.dataset.status === 'fold') {
+            _base.style.maxHeight = 'none'
+            _maxHgt = _base.clientHeight;
+            _base.style.maxHeight = `${_baseHgt}px`;
+            _base.style.transition = 'all .3s ease-out';
+            setTimeout(() => {
+                _base.style.maxHeight = `${_maxHgt}px`;
+            }, 10);
+            setTimeout(() => {
+                btn.querySelector('span').innerHTML = _txtClose;
+                btn.classList.add('close');
+                _base.dataset.status = 'unfold';
+            },300);
+        } else {
+            _base.style.maxHeight = `${_baseHgt}px`;
+            setTimeout(() => {
+                _base.dataset.status = 'fold';
+                _base.style.maxHeight = `${_baseHgt}px`;
+                btn.querySelector('span').innerHTML = _txtOpen;
+                btn.classList.remove('close');
+                window.scrollTo({
+                    top: window.pageYOffset + _base.getBoundingClientRect().top - 65,
+                    behavior: 'smooth'
+                })
+            }, 300);
+        }
+    })
+}
+// close modal
+function closeModalSwipe({base, cls, checkBody}) {
+    const sclTarget = base.querySelector('.box-bottom-float') ? base.querySelector('.box-bottom-float') : base;
+    const initialize = {
+        firstX: 0,
+        firstY: 0,
+        isMove: false,
+        moveLeft: 0,
+        moveTop: 0,
+    }
+    const dragStart = () => {
+        base.querySelector(cls).addEventListener('touchstart', mouseDown);
+        window.addEventListener('touchmove', mouseMove)
+        window.addEventListener('touchend', mouseUp)
+    };
+    const mouseDown = (event) => {
+        if (event.target.closest('.group-option-change') || event.target.closest('.area-inner-scroll') || event.target.closest('.area-scroll') || initialize.isMove || base.scrollTop > 0) {
+            return;
+        }
+
+        initialize.firstX = event.type !== 'mousedown' ? event.touches[0].screenX : event.pageX;
+        initialize.firstY = event.type !== 'mousedown' ? event.touches[0].screenY : event.pageY;
+
+        initialize.moveLeft = 0;
+        initialize.moveTop = 0;
+        initialize.isMove = true;
+    };
+    const mouseMove = (event) => {
+        if (!initialize.isMove) {
+            return;
+        }
+
+        const _moveX = event.type !== 'mousemove' ? event.touches[0].screenX : event.pageX;
+        const _moveY = event.type !== 'mousemove' ? event.touches[0].screenY : event.pageY;
+
+        initialize.moveLeft = initialize.firstX - _moveX;
+        initialize.moveTop = initialize.firstY - _moveY;
+    };
+    const mouseUp = (event) => {
+        if (!initialize.isMove) {
+            return;
+        }
+        if (Math.abs(initialize.moveLeft) < Math.abs(initialize.moveTop) && initialize.moveTop < 0 && sclTarget.scrollTop < 1 && Math.abs(initialize.moveTop) > 30) {
+            initialize.isMove = false;
+            closeEl();
+            checkBody && document.querySelector('html').getAttribute('style') && document.querySelector('html').removeAttribute('style')
+            checkBody && document.querySelector('body').getAttribute('style') && document.querySelector('body').removeAttribute('style')
+            document.body.classList.contains('is-dimmed') && document.body.classList.remove('is-dimmed');
+        }
+        initialize.firstX = 0;
+        initialize.firstY = 0;
+        initialize.isMove = false;
+        initialize.moveLeft = 0;
+        initialize.moveTop = 0;
+    };
+    base.querySelector(cls) && dragStart();
+}
+function selectClickEvent() {
+    
+}
+// event trigger
+function evtTrigger(btn) {
+    const _event = document.createEvent('Event');
+    _event.initEvent('click', true, true);
+    btn.dispatchEvent(_event);
+}
+// 우측 결제 금액 스크롤 이벤트
+function scrollFloatRight(target) {
+    const _target = document.querySelector(target);
+    const _footer = document.getElementById('footer');
+    const _addNum = 122;
+    const _pos = window.scrollY + _target.getBoundingClientRect().top - _addNum;
+    let _footerPos = window.scrollY + _footer.getBoundingClientRect().top;
+    const calcuHgt = (target) => {
+        return Array.prototype.reduce.call(target, (acc, el) => {
+            return acc + el.clientHeight;
+        }, 0)
+    }
+    let _hgt = calcuHgt(_target.children);
+    const checkPos = () => {
+        _hgt = calcuHgt(_target.children);
+        _footerPos = window.scrollY + _footer.getBoundingClientRect().top;
+        if (window.scrollY >= _pos && window.scrollY + _hgt + _addNum < _footerPos) {
+            _target.classList.add('fixed');
+            _target.removeAttribute('style');
+        } else if (window.scrollY + _hgt + _addNum > _footerPos) {
+            _target.style.top = `${_footer.getBoundingClientRect().top - _hgt - 50}px`;
+        } else {
+            _target.removeAttribute('style');
+            _target.classList.contains('fixed') && _target.classList.remove('fixed');
+        }
+        if (document.body.clientWidth < 1200 && _target.classList.contains('fixed')) {
+            _target.style.left = `${952 - window.scrollX}px`;
+        }
+    }
+    window.addEventListener('scroll', () => {
+        checkPos();
+    });
+    let observer = new ResizeObserver(function(entries) {
+        entries.forEach(function(entrie) {
+            checkPos();
+        })
+    })
+	observer.observe(_target);
+    observer.observe(document.body);
+}
+// 모바일 최종 결제금액 보기 아코디언
+function paymentFoldPos(cls) {
+    const _wrap = document.querySelector(cls);
+    const _btn = _wrap.querySelector('.detail_tit.type-btn button');
+    const _content = _wrap.querySelector('.detail_discount');
+    const checkHgt = () => {
+        setTimeout(() => {
+            if (_content.classList.contains('is-active')) {
+                const _scl = window.scrollY + _content.clientHeight;
+                window.scrollTo({
+                    top: _scl,
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            } else {
+                checkHgt();
+            }
+        }, 100);
+    }
+    _btn.addEventListener('click', () => {
+        checkHgt();
+    })
+}
+// observer intersection
+function setIntersectionOpserve({target}) {
+    const options = {
+        threshold: 0
+    }
+    const _target = document.querySelectorAll(target);
+    const callback = (entries, observer) => {
+        entries.forEach(entry => {
+            const {target} = entry;
+            if (entry.isIntersecting) {
+                setSwiper({target, gap: 30, pagination: '.swiper-pagination'})
+                observer.unobserve(target);
+            }
+        });
+    };
+    const observer = new IntersectionObserver(callback, options);
+    Array.prototype.forEach.call(_target, el => {
+        observer.observe(el);
+    });
+}

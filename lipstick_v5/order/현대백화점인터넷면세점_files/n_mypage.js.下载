@@ -1,0 +1,193 @@
+window.addEventListener('load', () => {
+    // 마이현대 메뉴 서브 메뉴 보기
+    document.querySelector('.wrap-my-menu .list-my-menu') && viewMyMenu('.wrap-my-menu');
+    // 롤링 알림 메세지
+    document.querySelector('.my-grade__alram') && myAlram();
+    // 1, 3, 6개월 기간 선택
+    document.querySelector('.list-order__head.type-order-history [data-role="period-calendar"]') && Array.prototype.forEach.call(document.querySelectorAll('.list-order__head.type-order-history [data-role="period-calendar"]'), el => {
+        changePeriodCalendar(el.closest('.list-order__head.type-order-history'));
+    });
+    // 마이현대 앵커이동 20230726 추가
+    document.querySelector('.my-tab-menu-info') && anchorMove(document.querySelector('.my-tab-menu-info'));
+    // 모바일 전자여권 숨기기
+    document.querySelector('.wave-open.electronic-passport-wrap') && hidePassport('.wave-open.electronic-passport-wrap');
+    // 마이현대 높이값
+    document.querySelector('.my-od-tab-content') && setSameHgt('.my-od-tab-content');
+});
+// 마이현대 메뉴 서브 메뉴 보기
+function viewMyMenu(target) {
+    const base = document.querySelector(target);
+    const _snb = base.querySelectorAll('.list-my-snb');
+    const back = document.createElement('div');
+    let _snbHgt = 0;
+
+    back.className = 'my-menu__back';
+    base.insertAdjacentElement('afterbegin', back);
+
+    const checkHgt = () => {
+        _snbHgt = Array.prototype.reduce.call(_snb, (acc, el) => {
+            el.style.display = 'block';
+            acc = acc < el.clientHeight ? el.clientHeight : acc;
+            el.removeAttribute('style');
+            return acc;
+        }, 0);
+        const _mrg = parseInt(window.getComputedStyle(_snb[0]).getPropertyValue('padding-top'));
+        return _snbHgt + _mrg;
+        
+    }
+    base.addEventListener('mouseenter', (e) => {
+        back.style.transition = 'height .3s ease-out';
+        back.style.height = `${maxHgt}px`;
+        Array.prototype.forEach.call(_snb, snb => {
+            elSlideDown({base, target: snb, btn: base.querySelector('a'), cls: 'is-active', execute: true, is: 'ing'})
+        })
+    })
+    base.addEventListener('mouseleave', (e) => {
+        elSlideDown({base, target: back, btn: base.querySelector('a'), cls: 'is-active', execute: false, is: 'ing'})
+        Array.prototype.forEach.call(_snb, snb => {
+            elSlideDown({base, target: snb, btn: base.querySelector('a'), cls: 'is-active', execute: false, is: 'ing'})
+        })
+    })
+    const maxHgt = checkHgt();
+}
+// 롤링 알림 메세지
+function myAlram() {
+    const _base = document.querySelector('.my-grade__alram');
+    const _alram = _base.querySelectorAll('a');
+    const _time = 5000;
+    let _timer = '';
+    let _cur = 0;
+    if (!_base.querySelector('a') || _base.querySelectorAll('a') < 2) {
+        return;
+    }
+    const interval = () => {
+        _timer = setInterval(() => {
+            _base.querySelector('.is-active') && _base.querySelector('.is-active').classList.remove('is-active');
+            _alram[_cur % _alram.length].classList.add('is-active');
+            _cur++;
+        }, _time);
+    }
+    interval();
+    _base.addEventListener('mouseenter', () => {
+        clearInterval(_timer);
+        _timer = '';
+    });
+    _base.addEventListener('mouseleave', () => {
+        interval();
+    });
+}
+// 마이현대 앵커이동 20230726 추가
+function anchorMove(base) {
+    const _topHgt = 60;
+    const _btnHgt = 57;
+    const _btns = base.querySelectorAll('a');
+    let _pos = 0;
+    const _tabConts = base.parentNode.querySelectorAll('.my-panel');
+    let _contPos = Array.prototype.map.call(_tabConts, cont => {
+        return window.scrollY + cont.getBoundingClientRect().top;
+    });
+    let _is = false;
+    const sclEvt = () => {
+        if (window.scrollY >= _pos) {
+            !base.parentNode.classList.contains('fixed') && base.parentNode.classList.add('fixed');
+        } else {
+            base.parentNode.classList.contains('fixed') && base.parentNode.classList.remove('fixed');
+        }
+        checkCurPos(window.scrollY);
+    }
+    const throttleUse = (callback) => {
+        let _timeOut = null;
+        _pos = window.scrollY + base.getBoundingClientRect().top - _topHgt;
+        _contPos = Array.prototype.map.call(_tabConts, cont => {
+            return window.scrollY + cont.getBoundingClientRect().top;
+        });
+        return function () {
+            if (_timeOut) {
+                window.cancelAnimationFrame(_timeOut);
+            }
+            _timeOut = window.requestAnimationFrame(function () {
+                callback();
+            });
+        }
+    }
+    window.addEventListener('scroll', throttleUse(sclEvt, 100));
+    const checkCurPos = (pos) => {
+        if (_is) {
+            return;
+        }
+        for (let i = 0; i < _contPos.length; i++) {
+            const _computed = _contPos[i] - _btnHgt - _topHgt;
+            if (pos > _computed && pos < _tabConts[i].clientHeight + _computed) {
+                // removeArrCls(base.querySelectorAll('li'), 'is-active');
+                base.querySelector('.is-active') && base.querySelector('.is-active').classList.remove('is-active');
+                !_btns[i].parentNode.classList.contains('is-active') && _btns[i].parentNode.classList.add('is-active');
+            }
+        }
+    }
+    Array.prototype.forEach.call(_btns, btn => {
+        btn.addEventListener('click', (e) => {
+            const _link = btn.getAttribute('href');
+            if (_link.indexOf('#') === -1) {
+                return;
+            }
+            _is = true;
+            // removeArrCls(base.querySelectorAll('li'), 'is-active');
+            base.querySelector('.is-active') && base.querySelector('.is-active').classList.remove('is-active');
+            !btn.parentNode.classList.contains('is-active') && btn.parentNode.classList.add('is-active');
+            e.preventDefault();
+            const _target = document.getElementById(_link.replace('#', ''));
+            $('html, body').animate({
+                scrollTop: window.scrollY + _target.getBoundingClientRect().top - _topHgt - _btnHgt
+            }, function() {
+                _is = false;
+            })
+            // window.scrollTo({
+            //     top: window.scrollY + _target.getBoundingClientRect().top - _topHgt - _btnHgt,
+            //     behavior: 'smooth'
+            // });
+        })
+    });
+}
+function removeArrCls(targets, cls) {
+    Array.prototype.forEach.call(targets, target => {
+        target.classList.contains(cls) && target.classList.remove(cls);
+    });
+}
+// 모바일 전자여권 숨기기
+function hidePassport(el) {
+    const _headerBtn = document.querySelector('.header_top > h2');
+    const _menu = document.querySelector('.header_top .depth_menu');
+    _headerBtn.addEventListener('click', () => {
+        const _scl = window.scrollY;
+        _menu.classList.contains('open') && $(el).fadeOut();
+        _scl !== 0 && !_menu.classList.contains('open') && $(el).fadeIn();
+    })
+}
+// 마이현대 높이값
+function setSameHgt(cls) {
+	const _targets = document.querySelectorAll(cls);
+	let _max = 0;
+	const calHgt = () => {
+		Array.prototype.forEach.call(_targets, target => {
+            target.closest('.my-tab-content').classList.add('temped');
+            const _hgt = target.clientHeight;
+            target.closest('.my-tab-content').classList.remove('temped');
+            if (_max < _hgt) {
+                _max = _hgt
+            }
+        });
+	}
+    calHgt();
+    const checkHgt = (type) => {
+        Array.prototype.forEach.call(_targets, target => {
+            if (_max === 0 || type) {
+                setTimeout(() => {
+                    calHgt();
+                }, 100);
+            } else {
+                target.style.height = `${_max}px`;
+            }
+        });
+    }
+    checkHgt();
+}

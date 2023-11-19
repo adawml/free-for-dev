@@ -1,0 +1,473 @@
+// 20130713 수정
+const _mobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent) || window.innerWidth < 500; // 웹에서 확인용으로 innewWidth 추가
+// vh 셋팅
+function setScreenSize() {
+    const _vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${_vh}px`);
+}
+window.addEventListener('load', () => {
+    // 20230804 수정
+    // 모바일 vh 셋팅
+    document.querySelector('.area-cart, .myhd, .od') && _mobile && setScreenSize();
+    document.querySelector('.area-cart, .myhd, .od') && _mobile && window.addEventListener('resize', setScreenSize);
+    // 장바구니 세트 swiper
+    document.querySelector('.wrap-swiper__set') && Array.prototype.forEach.call(document.querySelectorAll('.wrap-swiper__set'), target => {
+        setSwiper({target, viewNum: 4, gap: 16, navigation: true});
+    });
+    /* 퍼블 확인 용 */
+    // 최저가 엿보기 20230713 수정
+    document.querySelector('.payment-info__low-price.type-always .bottom-price__open button') && viewSlideCont({base: '.payment-info__low-price.type-always', btn: '.payment-info__low-price .bottom-price__open button', target: '.payment-info__low-price .bottom-price__detail'});
+    // 최저가 엿보기 적립금 할인 20230713 수정
+    // document.querySelector('.payment-info__low-price .bottom-price__item button') && viewSlideCont({base: '.payment-info__low-price .list-bottom-price.type-detail', btn: '.payment-info__low-price .bottom-price__item button', target: '.payment-info__low-price .list-bottom-price--detail'});
+    document.querySelector('.wrap-payment-cart') && viewSlideCont({base: '.wrap-payment-cart .list-bottom-price.type-detail', btn: '.wrap-payment-cart .bottom-price__item button', target: '.wrap-payment-cart .list-bottom-price--detail'});
+    // 툴팁 20230713 수정
+    document.querySelector('.btn-tooltip') && Array.prototype.forEach.call(document.querySelectorAll('.btn-tooltip'), el => {
+        viewTooltip(el);
+    });
+    // 최저가 엿보기 열기
+    document.querySelector('[data-role*="open__"]') && Array.prototype.forEach.call(document.querySelectorAll('[data-role*="open__"]'), el => {
+        openEl(el);
+    });
+    // 품절삭제 체크박스 20230802 수정
+    _mobile && document.getElementById('chk-sold-out') && changeSoldOut(document.getElementById('chk-sold-out'));
+    // 장바구니 이런상품 어때요 swiper
+    document.querySelector('.wrap-swiper-list-product') && setSwiper({target: document.querySelector('.wrap-swiper-list-product'), viewNum: 4, gap: 16});
+    // 주문창 여부
+    document.querySelector('.wrap-payment-cart .payment-cart') && setPadBot(document.querySelector('.wrap-payment-cart .payment-cart').parentNode);
+});
+// 슬라이드 다운
+function viewSlideCont({base, btn, target}) {
+    const _base = typeof base === 'string' ? document.querySelector(base) : base;
+    const _target = typeof target == 'string' ? document.querySelector(target) : target;
+    const _btn = typeof btn === 'string' ? document.querySelector(btn) : btn;
+    _btn && _btn.addEventListener('click', () => {
+        if (!_base.classList.contains('active')) {
+            _btn.setAttribute('aria-expanded', true);
+            elSlideDown({base: _base, btn: _btn, target: _target, cls: 'active', execute: true, is: 'ing'});
+        } else {
+            _btn.setAttribute('aria-expanded', false);
+            elSlideDown({base: _base, btn: _btn, target: _target, cls: 'active', execute: false, is: 'ing'});
+        }
+    })
+}
+// 툴팁 20230713 수정
+function viewTooltip(btn) {
+    const _target = btn.parentNode.querySelector('.wrap-tooltip__content');
+    btn.addEventListener('click', () => {
+        const _top = btn.getBoundingClientRect().top;
+        const _left = btn.getBoundingClientRect().left;
+        // 레이어 경우 top 사용 안함
+        if (!btn.closest('.layer-dim')) {
+            _target.style.top = `${_top + 30}px`;
+        }
+        // 모바일, 레이어 경우 left 사용 안함
+        if (!_mobile && !btn.closest('.layer-dim')) {
+            _target.style.left = `${_left}px`;
+        }
+        _target.classList.add('active');
+    });
+    _target.querySelector('.btn-close').addEventListener('click', () => {
+        _target.classList.remove('active');
+    });
+    window.addEventListener('scroll', () => {
+        if (!_target.classList.contains('active')) {
+            return;
+        }
+        _target.classList.remove('active');
+    })
+}
+// body freeze
+function bodyFreeze(freeze) {
+    const scrollFreeze = () => {
+        document.body.style.overscrollBehaviorY = 'contains';
+        document.querySelector('html').style.height = '100%';
+        document.querySelector('html').style.overflow = 'hidden';
+    }
+    if (!freeze) {
+        document.body.removeAttribute('style');
+        document.querySelector('html').removeAttribute('style');
+        document.body.classList.remove('is-dimmed');
+    } else {
+        scrollFreeze();
+        document.body.classList.add('is-dimmed');
+    }
+}
+// 상품 삭제 팝업
+function deleteConfirm(txt) {
+    bodyFreeze('freeze');
+    const _layer = document.createElement('div');
+    _layer.className = 'layer-dim';
+    _layer.innerHTML = `
+        <div class="box-confirm-layer type-delete active">
+            <div class="txt-cont">${txt ? txt : '상품을 삭제하시겠습니까'}</div>
+            <ul class="list-btn">
+                <li><button type="button" class="btn-cancle">취소</button></li>
+                <li><button type="button" class="btn-confirm">확인</button></li>
+            </ul>
+        </div>
+    `;
+    document.body.append(_layer);
+
+    _layer.querySelector('.btn-cancle').addEventListener('click', function() {
+        bodyFreeze();
+        _layer.remove();
+    });
+    _layer.querySelector('.btn-confirm').addEventListener('click', function() {
+        bodyFreeze();
+        _layer.remove();
+        viewConfirmTxt('삭제되었습니다.'); // 삭제 확인 문구
+    })
+    _layer.addEventListener('click', (e) => {
+        const _cls = _layer.firstElementChild.getAttribute('class').replace('active', '').trim().split(' ').join('.');
+        const _target = e.target.closest(`.${_cls}`);
+        if (document.body.classList.contains('is-dimmed') && !_target) {
+            bodyFreeze();
+            _layer.remove();
+        }
+    })
+}
+// 확인메세지
+function viewConfirmTxt(txt) {
+    const _txt = document.createElement('div');
+    _txt.className = 'txt-confirm-message';
+    _txt.innerHTML = txt;
+    const _hasDim = document.body.classList.contains('is-dimmed');
+    document.body.append(_txt);
+    setTimeout(() => {
+        !_hasDim && bodyFreeze();
+        _txt.remove();
+    }, 1500);
+}
+// data-role 버튼 열기 20230713 수정
+function openEl(el) {
+    if (!el.dataset) {
+        return;
+    }
+    const _dataSet = el.dataset.role.replace('open__', '');
+    const _targetName = ctx_shop+`/${_dataSet}`;
+
+    el.addEventListener('click', e => {
+        e.preventDefault();
+        fetch(_targetName)
+            .then(res => {
+                if (!res.ok){
+                    throw new Error;
+                }
+                return res.text()
+            })
+            .then(res => {
+                makeLayer(res);
+            })
+            .catch(err => {
+                console.log(err);
+            })
+        }
+    );
+    // 팝업 높이값 만들기
+    const setHgt = (layer) => {
+        const _hgt = window.innerHeight;
+        const _child = layer.firstElementChild;
+        const _baseHgt = 60;
+        let _excHgt = 0;
+        if (_child.clientHeight === 0 || !layer.querySelector('.area-scroll')) {
+            return;
+        }
+        
+        const _scrolls = layer.querySelectorAll('.area-scroll');
+        const _setHgtTargets = Array.prototype.map.call(_scrolls, el => {
+            return el.parentNode.classList.contains('download-coupon') ? el.parentNode : el;
+        });
+        const _scrollHgt = _setHgtTargets[0].scrollHeight;
+
+        if ((_hgt - _baseHgt) < _child.clientHeight) {
+            _child.style.transitionDuration = '0s';
+            _child.style.height = `${_hgt - _baseHgt}px`;
+        }
+        
+        _excHgt = Array.prototype.reduce.call(layer.querySelectorAll('[data-scroll="exc"]'), (acc, el) => {
+            return acc += el.clientHeight + parseInt(window.getComputedStyle(el).getPropertyValue('margin-top'));
+        }, 0);
+        const _layerExc = parseInt(window.getComputedStyle(layer.firstElementChild).getPropertyValue('padding-top')) + parseInt(window.getComputedStyle(layer.firstElementChild).getPropertyValue('padding-bottom'));
+        const _scrollExc = parseInt(window.getComputedStyle(_setHgtTargets[0]).getPropertyValue('margin-top'));
+        const _computedHgt = _hgt - _baseHgt - _excHgt - _scrollExc - _layerExc;
+        
+        if (layer.querySelector('[data-scroll="exc"]') && _computedHgt <= _child.clientHeight) {
+            Array.prototype.forEach.call(_setHgtTargets, el => {
+                // 20230802 수정
+                if (_computedHgt > _scrollHgt && !layer.querySelector('.wrap-search-sch')) {
+                    el.style.height = `${_scrollHgt}px`;
+                } else {
+                    el.style.height = `${_computedHgt}px`;
+                }
+            })
+        }
+        // Array.prototype.forEach.call(_setHgtTargets, el => {
+        //     if (el.clientHeight >= el.scrollHeight) {
+        //         el.style.height = `${el.clientHeight}px`
+        //         el.classList.add('no-scroll');
+        //     }
+        // });
+        // 수량 변경 레이어 area-scroll 높이 설정
+        /* if (layer.querySelector('.wrap-option-change')) {
+            layer.querySelector('.area-scroll').style.height = `${_hgt - 605}px`;
+        } */
+    }
+    // mo 팝업 높이값 만들기 20230725 추가
+    const setMoHgt = (layer) => {
+        const _hgt = window.innerHeight;
+        const _child = layer.firstElementChild;
+        const _baseHgt = 44;
+        let _excHgt = 0;
+        if (_child.clientHeight === 0 || !layer.querySelector('.area-scroll')) {
+            return;
+        }
+        
+        const _scrolls = layer.querySelectorAll('.area-scroll');
+        const _setHgtTargets = Array.prototype.map.call(_scrolls, el => {
+            return el.parentNode.classList.contains('download-coupon') ? el.parentNode : el;
+        });
+        const _scrollHgt = _setHgtTargets[0].scrollHeight;
+
+        if ((_hgt - _baseHgt) < _child.clientHeight) {
+            _child.style.transitionDuration = '0s';
+            _child.style.height = `${_hgt - _baseHgt}px`;
+        }
+        
+        _excHgt = Array.prototype.reduce.call(layer.querySelectorAll('[data-scroll="exc"]'), (acc, el) => {
+            return acc += el.clientHeight + parseInt(window.getComputedStyle(el).getPropertyValue('margin-top'));
+        }, 0);
+        const _layerExc = parseInt(window.getComputedStyle(layer.firstElementChild).getPropertyValue('padding-top')) + parseInt(window.getComputedStyle(layer.firstElementChild).getPropertyValue('padding-bottom'));
+        const _scrollExc = parseInt(window.getComputedStyle(_setHgtTargets[0]).getPropertyValue('margin-top'));
+        const _computedHgt = _hgt - _baseHgt - _excHgt - _scrollExc - _layerExc - 12;
+        
+        if (layer.querySelector('[data-scroll="exc"]') && _computedHgt <= _child.clientHeight) {
+            Array.prototype.forEach.call(_setHgtTargets, el => {
+                if (_computedHgt > _scrollHgt && !layer.querySelector('.wrap-search-sch')) {
+                    el.style.height = `${_scrollHgt}px`;
+                } else {
+                    el.style.height = `${_computedHgt}px`;
+                }
+            })
+        }
+    }
+    // 레이어 만들기
+    const makeLayer = (res) => {
+        document.querySelector('.layer-dim') && document.querySelector('.layer-dim').remove(); //20230726 수정
+        const _layer = document.createElement('div');
+        _layer.className = 'layer-dim';
+        _layer.innerHTML = res;
+        $('body').append(_layer); // 20230720 수정
+        // document.body.append(_layer);
+        setTimeout(() => {
+            _layer.querySelector('div').classList.add('active');
+            const _dim = _layer.querySelector('[data-dim]') && _layer.querySelector('[data-dim]').dataset.dim;
+            bodyFreeze(`${_dim ? 'freeze' : ''}`);
+            // 레이어 높이값 설정
+            !_mobile && setHgt(_layer);
+            _mobile && setMoHgt(_layer); //20230725 수정
+        }, 100);
+        // 최저가 엿보기
+        document.querySelector('.wrap-payment-cart .bottom-price__detail') && viewSlideCont({base: '.wrap-payment-cart .bottom-price__detail', btn: '.wrap-payment-cart .bottom-price__open button'});
+        document.querySelector('.wrap-payment-cart .list-bottom-price') && viewSlideCont({base: '.wrap-payment-cart .list-bottom-price .list-bottom-price--detail', btn: '.wrap-payment-cart .list-bottom-price > li .bottom-price__item button'});
+        // 레이어 닫기
+        const closeLayer = () => {
+            _layer.querySelector('.active') && _layer.querySelector('.active').classList.remove('active');
+            setTimeout(() => {
+                bodyFreeze();
+                _layer.remove();
+            }, 10);
+        }
+        // 닫기 버튼 레이어 닫기
+        _layer.querySelector('.btn-close-layer') && _layer.querySelector('.btn-close-layer').addEventListener('click', () => closeLayer())
+        _layer.querySelector('[data-close="closeLayer"]') && _layer.querySelector('[data-close="closeLayer"]').addEventListener('click', () => closeLayer());
+        // 딤 클릭 레이어 닫기
+        _layer.addEventListener('click', (e) => {
+            if (_layer.querySelector('.box-float-layer.type-close') || e.target.nodeName === 'INPUT' || e.target.nodeName === 'BUTTON' || e.target.nodeName === 'A' || e.target.nodeName === 'SELECT' || !_layer.firstElementChild.getAttribute('class')) {
+                return;
+            }
+            const _cls = _layer.firstElementChild.getAttribute('class').replace('active', '').trim().split(' ').join('.');
+            const _target = e.target.closest(`.${_cls}`);
+            if (!e.target.classList.contains('type-del') && document.body.classList.contains('is-dimmed') && !_target) {
+                closeLayer()
+            }
+        })
+    }
+}
+// 모달 show/hide 20230724 추가 ex) viewInnerModal('#testId')
+function viewInnerModal(id) {
+    if (!$(id)) {
+        return;
+    }
+    const _dim = $(`${id} [data-dim]`) && $(`${id} [data-dim]`).data('dim');
+    
+    const closeThisModal = () => {
+        $(id).hide(
+            {
+                duration: 100,
+                done: function() {
+                    bodyFreeze();
+                }
+            }
+        );
+    }
+
+    $('.btn-close-layer') && $('.btn-close-layer').on('click ', function() {
+        closeThisModal();
+        $(this).off('click');
+    });
+
+    if($(id).css("display") == "none"){
+        $(id).show({
+            duration: 100,
+            done: function() {
+                bodyFreeze(`${_dim ? 'freeze' : ''}`);
+            }
+        });
+    }else{
+        closeThisModal();
+    }
+}
+
+//popup 오픈
+function openEl2(data) {
+    if(!data){
+        return;
+    }
+    // 팝업 높이값 만들기
+    const setHgt = (layer) => {
+        const _hgt = window.innerHeight;
+        const _child = layer.firstElementChild;
+        const _baseHgt = 60;
+        let _excHgt = 0;
+        if (_child.clientHeight === 0 || !layer.querySelector('.area-scroll')) {
+            return;
+        }
+
+        const _scrolls = layer.querySelectorAll('.area-scroll');
+        const _setHgtTargets = Array.prototype.map.call(_scrolls, el => {
+            return el.parentNode.classList.contains('download-coupon') ? el.parentNode : el;
+        });
+        const _scrollHgt = _setHgtTargets[0].scrollHeight;
+
+        if ((_hgt - _baseHgt) < _child.clientHeight) {
+            _child.style.transitionDuration = '0s';
+            _child.style.height = `${_hgt - _baseHgt}px`;
+        }
+
+        _excHgt = Array.prototype.reduce.call(layer.querySelectorAll('[data-scroll="exc"]'), (acc, el) => {
+            return acc += el.clientHeight + parseInt(window.getComputedStyle(el).getPropertyValue('margin-top'));
+        }, 0);
+        const _layerExc = parseInt(window.getComputedStyle(layer.firstElementChild).getPropertyValue('padding-top')) + parseInt(window.getComputedStyle(layer.firstElementChild).getPropertyValue('padding-bottom'));
+        const _scrollExc = parseInt(window.getComputedStyle(_setHgtTargets[0]).getPropertyValue('margin-top'));
+        const _computedHgt = _hgt - _baseHgt - _excHgt - _scrollExc - _layerExc;
+
+        if (layer.querySelector('[data-scroll="exc"]') && _computedHgt <= _child.clientHeight) {
+            Array.prototype.forEach.call(_setHgtTargets, el => {
+                if (_computedHgt > _scrollHgt && !layer.querySelector('.wrap-search-sch')) {
+                    el.style.height = `${_scrollHgt}px`;
+                } else {
+                    el.style.height = `${_computedHgt}px`;
+                }
+            })
+        }
+        // Array.prototype.forEach.call(_setHgtTargets, el => {
+        //     if (el.clientHeight >= el.scrollHeight) {
+        //         el.style.height = `${el.clientHeight}px`
+        //         el.classList.add('no-scroll');
+        //     }
+        // });
+        // 수량 변경 레이어 area-scroll 높이 설정
+        /* if (layer.querySelector('.wrap-option-change')) {
+            layer.querySelector('.area-scroll').style.height = `${_hgt - 605}px`;
+        } */
+    }
+    // 레이어 만들기
+    const makeLayer = (res) => {
+        const _layer = document.createElement('div');
+        _layer.className = 'layer-dim';
+        $(_layer).html(res);
+        $("body").append(_layer);
+        setTimeout(() => {
+            _layer.querySelector('div').classList.add('active');
+            const _dim = _layer.querySelector('[data-dim]') && _layer.querySelector('[data-dim]').dataset.dim;
+            bodyFreeze(`${_dim ? 'freeze' : ''}`);
+            // 레이어 높이값 설정
+            !_mobile && setHgt(_layer);
+        }, 100);
+        // 최저가 엿보기
+        document.querySelector('.wrap-payment-cart .bottom-price__detail') && viewSlideCont({base: '.wrap-payment-cart .bottom-price__detail', btn: '.wrap-payment-cart .bottom-price__open button'});
+        document.querySelector('.wrap-payment-cart .list-bottom-price') && viewSlideCont({base: '.wrap-payment-cart .list-bottom-price .list-bottom-price--detail', btn: '.wrap-payment-cart .list-bottom-price > li .bottom-price__item button'});
+        // 레이어 닫기
+        const closeLayer = () => {
+            _layer.querySelector('.active') && _layer.querySelector('.active').classList.remove('active');
+            setTimeout(() => {
+                bodyFreeze();
+                _layer.remove();
+                if(tmpHtmlDiv){closeElPop();}
+            }, 10);
+        }
+        // 닫기 버튼 레이어 닫기
+        _layer.querySelector('.btn-close-layer') && _layer.querySelector('.btn-close-layer').addEventListener('click', () => closeLayer())
+        _layer.querySelector('[data-close="closeLayer"]') && _layer.querySelector('[data-close="closeLayer"]').addEventListener('click', () => closeLayer());
+        // 딤 클릭 레이어 닫기
+        _layer.addEventListener('click', (e) => {
+            if (_layer.querySelector('.box-float-layer.type-close') || e.target.nodeName === 'INPUT' || e.target.nodeName === 'BUTTON' || e.target.nodeName === 'A' || e.target.nodeName === 'SELECT' || !_layer.firstElementChild.getAttribute('class')) {
+                return;
+            }
+            const _cls = _layer.firstElementChild.getAttribute('class').replace('active', '').trim().split(' ').join('.');
+            const _target = e.target.closest(`.${_cls}`);
+            if (document.body.classList.contains('is-dimmed') && !_target) {
+                closeLayer()
+            }
+        })
+    }
+    makeLayer(data);
+}
+
+function closeEl(){
+    bodyFreeze();
+    $(".layer-dim").remove();
+    if(tmpHtmlDiv){closeElPop();}
+}
+
+// 생성된 DIV 영역 팝업
+var tmpHtmlDiv;
+function showElPop(data){
+    if(data){
+        tmpHtmlDiv = data;
+        const delTargetId = $(data).attr('id');
+        $("#"+delTargetId).remove();
+
+        openEl2(tmpHtmlDiv);
+    }
+}
+
+function closeElPop(){
+    if(tmpHtmlDiv){
+        $("body").append(tmpHtmlDiv);
+        tmpHtmlDiv = "";
+    }
+}
+// 품절삭제 체크박스 20230726 추가
+function changeSoldOut(inp) {
+    const _target = document.querySelector('.btn-del__sold-out');
+    if (!_target) {
+        return;
+    }
+    inp.addEventListener('change', (e) => {
+        if (inp.checked) {
+            _target.innerHTML = '선택삭제';
+        } else {
+            _target.innerHTML = '품절삭제';
+        }
+    })
+}
+// 주문창 여부
+function setPadBot(target) {
+    const _hgt = target.clientHeight + 20;
+    const _base = document.querySelector('.area-cart') ? document.querySelector('.area-cart') : document.querySelector('.wrap-cart');
+    if (!_base) {
+        return;
+    }
+    _base.style.paddingBottom = `${_hgt}px`;
+}
