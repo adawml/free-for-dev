@@ -1058,11 +1058,11 @@ a.ui-button:active,
 .ui-state-focus .ui-icon,
 .ui-button:hover .ui-icon,
 .ui-button:focus .ui-icon {
-	background-image:url("../../images/KO/common/ico_common.png");
+	background-image:url("https://cdn.hddfs.com/front/images/KO/common/ico_common.png");
 }
 .ui-state-active .ui-icon,
 .ui-button:active .ui-icon {
-	background-image: url("../../images/KO/common/ico_common.png");
+	background-image: url("https://cdn.hddfs.com/front/images/KO/common/ico_common.png");
 }
 .ui-state-highlight .ui-icon,
 .ui-button .ui-state-highlight.ui-icon {
@@ -1073,7 +1073,7 @@ a.ui-button:active,
 	background-image: url("images/ui-icons_cc0000_256x240.png");
 }
 .ui-button .ui-icon {
-	background-image: url("../../images/KO/common/ico_common.png");
+	background-image: url("https://cdn.hddfs.com/front/images/KO/common/ico_common.png");
 }
 
 /* positioning */
