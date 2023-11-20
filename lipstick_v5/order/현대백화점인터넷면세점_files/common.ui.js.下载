@@ -1722,7 +1722,7 @@ $(function(){
 $(function(){
    // var animation1 = bodymovin.loadAnimation({ // 2021-07-02 개발팀 function  수정으로 주석 처리
 	// 	container: document.getElementById('heart01_2'),
-	// 	path: '../../js/KO/heart2.html',/* 퍼블경로 ->  ../../js/M_KO/heart2.html , 개발 ../../html/M_KO/js/M_KO/heart2.html */
+	// 	path: 'https://cdn.hddfs.com/front/js/KO/heart2.html',/* 퍼블경로 ->  https://cdn.hddfs.com/front/js/M_KO/heart2.html , 개발 https://cdn.hddfs.com/front/html/M_KO/js/M_KO/heart2.html */
 	// 	renderer: 'svg', // Required
 	// 	loop: false, // Optional
 	// 	autoplay: false // Optional,
