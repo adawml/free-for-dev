@@ -6237,7 +6237,7 @@ body.is-dimmed::before {
 	z-index: 1;
 	width: calc(100% - 32px);
 	height: calc(100% - 32px);
-	background-color: rgba(12, 54, 122, 0.04);
+	background-color: rgba(12, 54, 122, 0.1);
 	content: "";
 }
 .product__item .product__sale-mount {
